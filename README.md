@@ -1,38 +1,61 @@
-# create-svelte
+# Natural Travel Inspiration ⛰️
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+<p>&nbsp;<p>
 
-## Creating a project
+‎[Natural Travel Inspiration ⛰️]()
 
-If you're seeing this, you've probably already done this step. Congrats!
+<p>&nbsp;<p>
+  
+![License](https://img.shields.io/static/v1?label=Language&message=JavaScript&color=yellow)
+![License](https://img.shields.io/static/v1?label=Language&message=HTML5&color=orange) ![License](https://img.shields.io/static/v1?label=Language&message=CSS3&color=blue) ![License](https://img.shields.io/static/v1?label=Framework&message=SvelteKit&color=green) 
+![License](https://img.shields.io/static/v1?label=Framework&message=Pico.css&color=yellow)
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+<p>&nbsp;<p>
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+<strong><em>About This Project:</strong></em>
 
-## Developing
+<p>&nbsp;<p>
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+we all live in cities or suburbs, work from businesses, offices or work from home. Having manmade structures be the main setting where many of us spend most of our time, we should get out and explore. Nature is beautiful and life is short, we should enjoy it while we can. I've lived and worked in and around a city for a long time, but in the evenings or on weekends I have always tried to get out and enjoy what was here before I was born. Many of my travels have revolved around it. So I made this web project as a way to inspire myself and others. It pulls random images from the Unsplash API that were created by photographers from all over the world that contribute their images to that platform. Each random image presented credits them below it if you're curious. If you would prefer to be more specific about a random image you can hit the form below that to search. This simple web project was the first time that I have built anything using SvelteKit and I don't believe it will be the last.
 
-```bash
-npm run dev
+<p>&nbsp;<p>
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+---
 
-## Building
+<p>&nbsp;<p>
 
-To create a production version of your app:
+## Credits
 
-```bash
-npm run build
-```
+<p>&nbsp;<p>
 
-You can preview the production build with `npm run preview`.
+<strong><em>Third party assets:</strong></em>
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+<p>&nbsp;<p>
+
+`SvelteKit` =>‏‏‎ ‎ ‏‏‎ ‎[Web development, streamlined. Powered by Svelte and Vite, speed is baked into every crevice: fast setup, fast dev, fast builds, fast page loads, fast navigation.](https://kit.svelte.dev/)
+
+<p>&nbsp;‏‏‎‏‏‎ ‎<strong>+</strong></p>
+
+`Pico.css` =>‏‏‎ ‎ ‏‏‎ ‎[Minimal CSS Framework for semantic HTML. Elegant styles for all native HTML elements without .classes and dark mode automatically enabled.](https://picocss.com/)
+
+<p>&nbsp;‏‏‎‏‏‎ ‎<strong>+</strong></p>
+
+`Unsplash API` =>‏‏‎ ‎ ‏‏‎ ‎[The most powerful photo engine in the world. The largest open collection of high-quality photos — 5.8M photos from 360.1k contributing photographers. ](https://unsplash.com/developers)
+
+<p>&nbsp;‏‏‎‏‏‎ ‎<strong>+</strong></p>
+
+`GitHub Pages` =>‏‏‎ ‎ ‏‏‎ ‎[Websites for you and your projects.](https://pages.github.com/)
+
+<p>&nbsp;<p>
+
+---
+
+<p>&nbsp;<p>
+
+## Questions?
+
+<p>&nbsp;<p>
+
+Shoot me an e-mail! => jonathan@jonathanschimpf.com
+
+<p>&nbsp;<p>
