@@ -30,9 +30,9 @@ We all live in cities or suburbs, work from businesses, offices or work from hom
 
 <strong><em>Third party assets:</strong></em>
 
-<p>&nbsp;<p>
+<p>&nbsp;<>
 
-`SvelteKit` =>‏‏‎ ‎ ‏‏‎ ‎[Web development, streamlined.](https://kit.svelte.dev/) &nbsp; <p>Powered by Svelte and Vite, speed is baked into every crevice: fast setup, fast dev, fast builds, fast page loads, fast navigation.</p>
+`SvelteKit` =>‏‏‎ ‎ ‏‏‎ ‎[Web development, streamlined.](https://kit.svelte.dev/) Powered by Svelte and Vite, speed is baked into every crevice: fast setup, fast dev, fast builds, fast page loads, fast navigation.
 
 <p>&nbsp;‏‏‎‏‏‎ ‎<strong>+</strong></p>
 
