@@ -32,7 +32,7 @@ We all live in cities or suburbs, work from businesses, offices or work from hom
 
 <p>&nbsp;<p>
 
-`SvelteKit` =>‏‏‎ ‎ ‏‏‎ ‎[Web development, streamlined.](https://kit.svelte.dev/) &nbsp; <p>Powered by Svelte and Vite, speed is baked into every crevice: fast setup, fast dev, fast builds, fast page loads, fast navigation.</p>
+`SvelteKit` =>‏‏‎ ‎ ‏‏‎ ‎[Web development, streamlined.](https://kit.svelte.dev/) <p>&nbsp;</p> <p>Powered by Svelte and Vite, speed is baked into every crevice: fast setup, fast dev, fast builds, fast page loads, fast navigation.</p>
 
 <p>&nbsp;‏‏‎‏‏‎ ‎<strong>+</strong></p>
 
