@@ -30,17 +30,17 @@ We all live in cities or suburbs, work from businesses, offices or work from hom
 
 <strong><em>Third party assets:</strong></em>
 
-<p>&nbsp;<>
+<p>&nbsp;</p>
 
 `SvelteKit` =>‏‏‎ ‎ ‏‏‎ ‎[Web development, streamlined.](https://kit.svelte.dev/) Powered by Svelte and Vite, speed is baked into every crevice: fast setup, fast dev, fast builds, fast page loads, fast navigation.
 
 <p>&nbsp;‏‏‎‏‏‎ ‎<strong>+</strong></p>
 
-`Pico.css` =>‏‏‎ ‎ ‏‏‎ ‎[Minimal CSS Framework for semantic HTML. Elegant styles for all native HTML elements without .classes and dark mode automatically enabled.](https://picocss.com/)
+`Pico.css` =>‏‏‎ ‎ ‏‏‎ ‎[Minimal CSS Framework for semantic HTML.](https://picocss.com/) Elegant styles for all native HTML elements without .classes and dark mode automatically enabled.
 
 <p>&nbsp;‏‏‎‏‏‎ ‎<strong>+</strong></p>
 
-`Unsplash API` =>‏‏‎ ‎ ‏‏‎ ‎[The most powerful photo engine in the world. The largest open collection of high-quality photos — 5.8M photos from 360.1k contributing photographers. ](https://unsplash.com/developers)
+`Unsplash API` =>‏‏‎ ‎ ‏‏‎ ‎[The most powerful photo engine in the world.](https://unsplash.com/developers) The largest open collection of high-quality photos — 5.8M photos from 360.1k contributing photographers.
 
 <p>&nbsp;‏‏‎‏‏‎ ‎<strong>+</strong></p>
 
