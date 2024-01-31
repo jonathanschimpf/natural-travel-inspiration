@@ -2,7 +2,7 @@
 
 <p>&nbsp;<p>
 
-‎[Natural Travel Inspiration ⛰️]()
+‎[Natural Travel Inspiration]()
 
 <p>&nbsp;<p>
   
@@ -16,7 +16,7 @@
 
 <p>&nbsp;<p>
 
-we all live in cities or suburbs, work from businesses, offices or work from home. Having manmade structures be the main setting where many of us spend most of our time, we should get out and explore. Nature is beautiful and life is short, we should enjoy it while we can. I've lived and worked in and around a city for a long time, but in the evenings or on weekends I have always tried to get out and enjoy what was here before I was born. Many of my travels have revolved around it. So I made this web project as a way to inspire myself and others. It pulls random images from the Unsplash API that were created by photographers from all over the world that contribute their images to that platform. Each random image presented credits them below it if you're curious. If you would prefer to be more specific about a random image you can hit the form below that to search. This simple web project was the first time that I have built anything using SvelteKit and I don't believe it will be the last.
+We all live in cities or suburbs, work from businesses, offices or work from home. Having manmade structures be the main setting where many of us spend most of our time, we should get out and explore. Nature is beautiful and life is short, we should enjoy it while we can. I've lived and worked in and around a city for a long time, but in the evenings or on weekends I have always tried to get out and enjoy what was here before I was born. Many of my travels have revolved around it. So I made this web project as a way to inspire myself and others. It pulls random images from the Unsplash API that were created by photographers from all over the world that contribute their images to that platform. Each random image presented credits them below it if you're curious. If you would prefer to be more specific about a random image you can hit the form below that to search. This simple web project was the first time that I have built anything using SvelteKit and I don't believe it will be the last.
 
 <p>&nbsp;<p>
 
@@ -32,7 +32,7 @@ we all live in cities or suburbs, work from businesses, offices or work from hom
 
 <p>&nbsp;<p>
 
-`SvelteKit` =>‏‏‎ ‎ ‏‏‎ ‎[Web development, streamlined. Powered by Svelte and Vite, speed is baked into every crevice: fast setup, fast dev, fast builds, fast page loads, fast navigation.](https://kit.svelte.dev/)
+`SvelteKit` =>‏‏‎ ‎ ‏‏‎ ‎[Web development, streamlined.](https://kit.svelte.dev/) &nbsp; <p>Powered by Svelte and Vite, speed is baked into every crevice: fast setup, fast dev, fast builds, fast page loads, fast navigation.</p>
 
 <p>&nbsp;‏‏‎‏‏‎ ‎<strong>+</strong></p>
 

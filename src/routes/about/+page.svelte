@@ -27,7 +27,7 @@
 		>
 		API that were created by photographers from all over the world that contribute their images to that
 		platform. Each random image presented credits them below it if you're curious. If you would prefer
-		to be more specific about a random image you can hit the form below that to search. This simple web
+		to be slightly more specific about a random image you can hit the form below the 'Random Natural Inspiration' button to search. No guarantees! This simple web
 		project was the first time that I have built anything using
 		<a
 			class="svelte-link"
