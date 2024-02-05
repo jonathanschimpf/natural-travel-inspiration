@@ -27,8 +27,9 @@
 		>
 		API that were created by photographers from all over the world that contribute their images to that
 		platform. Each random image presented credits them below it if you're curious. If you would prefer
-		to be slightly more specific about a random image you can hit the form below the 'Random Natural Inspiration' button to search. No guarantees! This simple web
-		project was the first time that I have built anything using
+		to be slightly more specific about a random image you can hit the form below the 'Random Natural
+		Inspiration' button to search. No guarantees! This simple web project was the first time that I have
+		built anything using
 		<a
 			class="svelte-link"
 			href="https://kit.svelte.dev/"
@@ -44,6 +45,8 @@
 			target="_blank"
 			aria-label="Natural Travel Inspiration Repository">here</a
 		>.
+
+		<br /> <br /> - Jonathan Schimpf
 	</p>
 </div>
 
@@ -89,7 +92,7 @@
 	}
 
 	.about-south_kaibab_image {
-		max-width: 600px; /* You can set a max-width if you want */
+		max-width: 600px;
 		border-radius: 2%;
 		margin-top: 1rem;
 	}
@@ -98,9 +101,8 @@
 		flex: 1 1 30%; /* Adjusts the width of the write-up to be 45% of the container */
 		max-width: 600px; /* You can set a max-width if you want */
 		color: black;
-		font-size: 1rem; /* Adjust font size as needed */
 		padding: 10px;
-		font-size: 15px;
+		font-size: 13px;
 	}
 
 	/* Adjust the media query to 500px for mobile viewports */

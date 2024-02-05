@@ -141,7 +141,7 @@
 		}
 	}
 
-	h5 {
+	h6 {
 		font-family: 'Futura', sans-serif; /* Futura OBVIOUSLY */
 	}
 

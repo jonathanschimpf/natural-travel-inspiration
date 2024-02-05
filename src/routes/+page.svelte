@@ -2,103 +2,149 @@
 	import { onMount } from 'svelte';
 	import PhotoCard from '../components/PhotoCard.svelte';
 	import { writable } from 'svelte/store';
-  
+
 	const accessKey = import.meta.env.VITE_UNSPLASH_ACCESS_KEY;
 	const seenPhotos = writable(new Set());
 	const requestTimes = writable([]);
-  
-	export let photo;
+
+	let photo;
 	let error = '';
 	let searchTerm = '';
-  
-	// Rate limit parameters
+
 	const maxRequestsPerHour = 50;
-	const oneHour = 3600 * 1000; // milliseconds
-  
-	// Function to check if we can make a request
+	const oneHour = 3600 * 1000;
+
 	function canMakeRequest() {
-	  const now = Date.now();
-	  $requestTimes = $requestTimes.filter(time => now - time < oneHour);
-	  return $requestTimes.length < maxRequestsPerHour;
+		const now = Date.now();
+		$requestTimes = $requestTimes.filter((time) => now - time < oneHour);
+		return $requestTimes.length < maxRequestsPerHour;
 	}
-  
-	// Function to record a request time
+
 	function recordRequestTime() {
-	  $requestTimes.push(Date.now());
+		$requestTimes.push(Date.now());
 	}
-  
+
 	async function fetchPhoto(query) {
-	  if (!canMakeRequest()) {
-		error = 'Rate limit reached. Please wait.';
-		return null;
-	  }
-  
-	  const url = `https://api.unsplash.com/photos/random?client_id=${accessKey}&query=${encodeURIComponent(query)}`;
-	  try {
-		const response = await fetch(url);
-		if (!response.ok) {
-		  throw new Error('Error fetching photo.');
+		if (!canMakeRequest()) {
+			error = 'Rate limit reached. Please wait.';
+			return null;
 		}
-		recordRequestTime();
-		const newPhoto = await response.json();
-		return newPhoto;
-	  } catch (err) {
-		error = 'Error fetching new photo.';
-		return null;
-	  }
+
+		const url = `https://api.unsplash.com/photos/random?client_id=${accessKey}&query=${encodeURIComponent(query)}`;
+		try {
+			const response = await fetch(url);
+			if (!response.ok) {
+				throw new Error('Error fetching photo.');
+			}
+			recordRequestTime();
+			const newPhoto = await response.json();
+			return newPhoto;
+		} catch (err) {
+			error = 'Error fetching new photo.';
+			return null;
+		}
 	}
-  
-	const keywords = ['mountain', 'hike', 'vista', 'cliff', 'forest', 'river'];
-  
-	function getRandomKeyword() {
-	  return keywords[Math.floor(Math.random() * keywords.length)];
+
+	async function onDownload(photo, filename) {
+		try {
+			const downloadLocationResponse = await fetch(
+				`${photo.links.download_location}?client_id=${accessKey}`,
+				{
+					method: 'GET',
+					headers: {
+						Authorization: `Client-ID ${accessKey}`
+					}
+				}
+			);
+
+			if (downloadLocationResponse.ok) {
+				const downloadLocationData = await downloadLocationResponse.json();
+				const actualDownloadUrl = downloadLocationData.url;
+
+				const imageResponse = await fetch(actualDownloadUrl);
+				if (imageResponse.ok) {
+					const blob = await imageResponse.blob();
+					const downloadUrl = URL.createObjectURL(blob);
+					const a = document.createElement('a');
+					a.href = downloadUrl;
+					a.download = filename; // Use the filename passed to the function
+					document.body.appendChild(a);
+					a.click();
+					document.body.removeChild(a); // Ensure the anchor element is removed after the click
+					URL.revokeObjectURL(downloadUrl);
+				} else {
+					throw new Error('Failed to download the image from Unsplash');
+				}
+			} else {
+				throw new Error('Unsplash download trigger failed');
+			}
+		} catch (error) {
+			console.error('Download error:', error);
+		}
 	}
-  
+
+	// Function to retrieve a unique photo
 	async function getUniquePhoto() {
-	  let uniquePhoto = null;
-	  while (!uniquePhoto) {
-		const randomKeyword = getRandomKeyword();
-		const potentialPhoto = await fetchPhoto(randomKeyword);
-		if (potentialPhoto && !$seenPhotos.has(potentialPhoto.id)) {
-		  uniquePhoto = potentialPhoto;
-		  $seenPhotos.add(potentialPhoto.id);
+		let uniquePhoto = null;
+		while (!uniquePhoto) {
+			const randomKeyword = getRandomKeyword();
+			const potentialPhoto = await fetchPhoto(randomKeyword);
+			if (potentialPhoto && !$seenPhotos.has(potentialPhoto.id)) {
+				uniquePhoto = potentialPhoto;
+				$seenPhotos.add(potentialPhoto.id);
+			}
 		}
-	  }
-	  photo = uniquePhoto;
+		photo = uniquePhoto;
 	}
-  
+
+	// Function to handle search based on the searchTerm
 	async function handleSearch() {
-	  if (searchTerm.trim()) {
-		const searchPhoto = await fetchPhoto(searchTerm);
-		if (searchPhoto && !$seenPhotos.has(searchPhoto.id)) {
-		  photo = searchPhoto;
-		  $seenPhotos.add(searchPhoto.id);
+		if (searchTerm.trim()) {
+			const searchPhoto = await fetchPhoto(searchTerm);
+			if (searchPhoto && !$seenPhotos.has(searchPhoto.id)) {
+				photo = searchPhoto;
+				$seenPhotos.add(searchPhoto.id);
+			}
+			searchTerm = '';
 		}
-		searchTerm = '';
-	  }
 	}
-  
-	onMount(() => {
-	  getUniquePhoto();
+
+	// Function to get a random keyword from an array
+	function getRandomKeyword() {
+		const keywords = ['mountain', 'hike', 'vista', 'cliff', 'forest', 'river'];
+		return keywords[Math.floor(Math.random() * keywords.length)];
+	}
+
+	onMount(async () => {
+		try {
+			const initialPhoto = await fetchPhoto('nature');
+			if (initialPhoto) {
+				photo = initialPhoto;
+			} else {
+				error = 'Could not load initial photo.';
+			}
+		} catch (e) {
+			error = 'There was an error during the initial photo fetch.';
+			console.error(e);
+		}
 	});
-  </script>
-  
-  <h1>Natural Travel Inspiration ⛰️</h1>
-  {#if error}
+</script>
+
+<h1>Natural Travel Inspiration ⛰️</h1>
+{#if error}
 	<p>{error}</p>
-  {:else if photo}
-	<PhotoCard {photo} />
-  {:else}
+{:else if photo}
+	<PhotoCard {photo} {onDownload} />
+{:else}
 	<p>Loading...</p>
-  {/if}
-  
-  <button on:click={getUniquePhoto}>Random Natural Inspiration</button>
-  
-  <form on:submit|preventDefault={handleSearch} class="pico-form">
+{/if}
+
+<button on:click={getUniquePhoto}>Random Natural Inspiration</button>
+
+<form on:submit|preventDefault={handleSearch} class="pico-form">
 	<input type="search" id="search-input" bind:value={searchTerm} placeholder="" />
 	<button type="submit">Search</button>
-  </form>
-  
+</form>
 
 <style>
 	/* FIRST THINGS FIRST: Mobile Media Query's */
@@ -122,7 +168,7 @@
 	}
 
 	button {
-		max-width: 250px;
+		max-width: 300px;
 		width: 100%;
 		margin: 1em auto;
 		display: flex; /* FLEX TO CENTER SEARCH BUTTON TEXT  */
@@ -136,7 +182,6 @@
 		font-size: 1rem;
 		cursor: pointer;
 		font-size: 14px;
-		
 	}
 
 	button:focus {
