@@ -23,6 +23,7 @@
 	function recordRequestTime() {
 		$requestTimes.push(Date.now());
 	}
+	const excludedPhotoIds = new Set(['zCf_jPlA2MY']);
 
 	async function fetchPhoto(query) {
 		if (!canMakeRequest()) {
@@ -141,6 +142,10 @@
 
 <button on:click={getUniquePhoto}>Random Natural Inspiration</button>
 
+<p>
+	<span class="specific-smaller-down-arrow">⬇</span>Search For A More Specific Random Image Below
+</p>
+
 <form on:submit|preventDefault={handleSearch} class="pico-form">
 	<input type="search" id="search-input" bind:value={searchTerm} placeholder="" />
 	<button type="submit">Search</button>
@@ -165,6 +170,18 @@
 		font-family: 'Futura', sans-serif;
 		text-align: center;
 		color: rgb(33, 33, 33);
+	}
+
+	.specific-smaller-down-arrow {
+		font-size: 11px;
+	}
+
+    p {
+		padding-top: 1em;
+		font-family: 'Futura', sans-serif;
+		text-align: center;
+		color: rgb(33, 33, 33);
+		font-size: 12px;
 	}
 
 	button {
