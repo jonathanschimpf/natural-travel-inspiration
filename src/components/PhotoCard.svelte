@@ -28,23 +28,22 @@
 		{:else}
 			<!-- Unknown location display -->
 			<div class="unknown-location">
-				<p class="location">Location Unknown</p>
-				<p class="ask-photographer">
-					<span class="smaller-down-arrow">⬇</span> Ask The Photographer Below
-					<span class="smaller-down-arrow">⬇</span>
+				<p class="location ask-photographer">
+					Location Unknown — <span class="smaller-down-arrow"> ⬇ </span>Ask The Photographer Below
 				</p>
 			</div>
 		{/if}
 
 		<!-- Caption with credit links -->
 		<div class="caption">
+			<span class="credit-photo-by">Photo by </span>
 			<a
 				class="credit-links"
 				href={photo.user.links.html}
 				target="_blank"
 				rel="noopener noreferrer"
 			>
-				Photo by {photo.user.name}
+				{photo.user.name}
 			</a>
 			<span class="credit-on"> on </span>
 			<a class="credit-links" href="https://unsplash.com" target="_blank" rel="noopener noreferrer"
@@ -116,11 +115,6 @@
 		text-align: center;
 	}
 
-	.location-container,
-	.caption {
-		margin: 5px 0;
-	}
-
 	.unknown-location {
 		text-align: center;
 	}
@@ -152,27 +146,34 @@
 	}
 
 	a,
-	.credit-on {
+	.credit-on,
+	.credit-photo-by {
 		font-size: 10px;
 		color: rgb(135, 135, 135);
 	}
 
-	.credit-links:hover {
+	.credit-links:hover,
+	.credit-links:focus {
 		text-decoration: none;
 		color: rgb(69, 69, 69);
 		cursor: pointer !important;
 	}
 
 	.download-button {
+		display: flex;
+		align-items: center;
+		text-align: center;
+		justify-content: center;
 		background-color: rgb(209, 209, 209);
-		font-size: 10px;
+		border-radius: 1px !important;
+		font-size: 8px;
 		color: rgb(135, 135, 135);
 		border: none;
 		padding: 0.5em 1em;
 		cursor: pointer;
-		max-width: 150px;
+		max-width: 45px;
+		height: 12px;
 		width: 100%;
-		text-align: center;
 		outline: 1px solid rgb(135, 135, 135);
 	}
 

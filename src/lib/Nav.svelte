@@ -50,7 +50,7 @@
   /* NAV FOCUS+ACTIVE STUFF */
   .menu li.active a,
   .menu li a:focus {
-    color: rgb(2, 50, 127);  
+    color: rgb(0, 145, 235); 
     transition: color 0.1s ease-in-out;
   }
 
@@ -60,7 +60,7 @@
     margin: auto; /* Center the pseudo-element */
     height: 3.25px; /* Thickness of your underline */
     width: 100%; /* Full width of the text */
-    background-color:rgb(2, 50, 127);  /* Color of your underline */
+    background-color:rgb(0, 145, 235);  /* Color of your underline */
   }
 
   .menu li a:focus {
@@ -70,7 +70,7 @@
 }
 
 .menu li a:hover {
-  color: rgb(2, 50, 127);  
+  color: rgb(0, 145, 235); 
 }
 
 

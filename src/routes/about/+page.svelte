@@ -25,7 +25,7 @@
 			target="_blank"
 			aria-label="Unsplash Link">Unsplash<span class="copyright-span">©</span></a
 		>
-    	API that were created by photographers from all over the world that contribute their images to that
+		API that were created by photographers from all over the world that contribute their images to that
 		platform. Each random image presented credits them below it if you're curious. If you would prefer
 		to be slightly more specific about a random image you can hit the form below the 'Random Natural
 		Inspiration' button to search. No guarantees! This simple web project was the first time that I have
@@ -57,11 +57,11 @@
 	}
 
 	.image-and-self-credit-container {
-		flex: 1 1 70%; /* Adjust based on desired width */
-		max-width: 600px; /* Max width of image container */
+		flex: 1 1 70%;
+		max-width: 600px;
 		display: flex;
-		flex-direction: column; /* Stack image and credit vertically */
-		align-items: center; /* Center align the content */
+		flex-direction: column;
+		align-items: center;
 	}
 
 	.natural-span {
@@ -72,22 +72,22 @@
 		flex-wrap: wrap;
 		align-items: center;
 		justify-content: center;
-		gap: 20px; /* Adjust the gap between image and text as needed */
-		margin: 20px; /* Adjust the margin as needed */
+		gap: 20px;
+		margin: 20px;
 	}
 
 	a.unsplash-link,
 	a.svelte-link,
 	a.natural-travel-repository {
 		text-decoration: none;
-		color: rgb(2, 50, 127) !important;
+		color: rgb(0, 129, 34);
 	}
 
 	a.unsplash-link:hover,
 	a.svelte-link:hover,
 	a.natural-travel-repository:hover {
 		text-decoration: none;
-		color: rgb(0, 129, 34) !important;
+		color: rgb(0, 145, 235) !important;
 		cursor: pointer !important;
 	}
 
@@ -98,23 +98,22 @@
 	}
 
 	.about-writeup {
-		flex: 1 1 30%; /* Adjusts the width of the write-up to be 30% of the container */
-		max-width: 600px; /* You can set a max-width if you want */
+		flex: 1 1 30%;
+		max-width: 600px;
 		color: black;
 		padding: 10px;
 		font-size: 13px;
 	}
 
 	.copyright-span {
-    font-size: 8px;
-    line-height: 1.5;
-    display: inline-block;
-    vertical-align: middle;
-    position: relative;
-    top: -0.7em;
-}
+		font-size: 8px;
+		line-height: 1.5;
+		display: inline-block;
+		vertical-align: middle;
+		position: relative;
+		top: -0.7em;
+	}
 
-	/* Adjust the media query to 500px for mobile viewports */
 	@media (max-width: 700px) {
 		.about-container {
 			flex-direction: column;
@@ -122,7 +121,6 @@
 
 		.about-south_kaibab_image,
 		.about-writeup {
-			/* Adjust to take full width on smaller screens */
 			flex: 1 0 100%;
 			max-width: 100%;
 			margin-top: 0;
