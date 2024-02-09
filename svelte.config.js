@@ -1,13 +1,26 @@
-import adapter from '@sveltejs/adapter-auto';
+import adapter from '@sveltejs/adapter-static';
+import preprocess from 'svelte-preprocess';
 
-/** @type {import('@sveltejs/kit').Config} */
 const config = {
-	kit: {
-		// adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.
-		// If your environment is not supported or you settled on a specific environment, switch out the adapter.
-		// See https://kit.svelte.dev/docs/adapters for more information about adapters.
-		adapter: adapter()
-	}
+  kit: {
+   // `adapter-static` builds a completely static website.
+    adapter: adapter({
+      // `pages` and `assets` are where the built files will be written
+      pages: 'build',
+      assets: 'build',
+      prerender: {
+        // This crawls the sitemap.xml to know what to prerender
+        default: true,
+      },
+    }),
+    paths: {
+      base: process.env.NODE_ENV === 'production' ? '/natural-travel-inspiration' : '',
+    },
+
+    // NUNYA
+  },
+
+  preprocess: preprocess(),
 };
 
 export default config;
