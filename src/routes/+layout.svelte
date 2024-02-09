@@ -1,4 +1,8 @@
 <!-- src/routes/+layout.svelte! -->
+<script context="module">
+	export const prerender = true;
+</script>
+
 <script>
 	import Nav from '$lib/Nav.svelte';
 	import '@picocss/pico/css/pico.min.css';
