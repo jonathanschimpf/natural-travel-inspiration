@@ -1,17 +1,13 @@
-import adapter from '@sveltejs/adapter-static';
-import preprocess from 'svelte-preprocess';
-
 const config = {
 	kit: {
 		adapter: adapter({
 			pages: 'build',
 			assets: 'build',
-			prerender: {
-				default: true
-			}
+			fallback: null,
+			precompress: false
 		}),
 		paths: {
-			base: '/natural-travel-inspiration'
+			base: process.env.NODE_ENV === 'production' ? '/natural-travel-inspiration' : ''
 		}
 	},
 	preprocess: preprocess()
