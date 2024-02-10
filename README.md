@@ -15,8 +15,7 @@ We all live in cities or suburbs, work from businesses, offices or work from hom
 
 <p>&nbsp;<p>
 
----
-
+------
 <p>&nbsp;<p>
 
 ## Credits
