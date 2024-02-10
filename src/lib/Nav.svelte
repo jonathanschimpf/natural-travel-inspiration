@@ -1,20 +1,22 @@
 <script>
+  import { base } from '$app/paths';
   import { page } from '$app/stores';
 </script>
 
 <nav aria-label="Main navigation">
   <ul class="menu">
-    <li class:active={$page.url.pathname === '/'}>
-      <a href="/">Home</a>
+    <li class:active={$page.url.pathname === `${base}/`}>
+      <a href={`${base}/`}>Home</a>
     </li>
-    <li class:active={$page.url.pathname === '/about'}>
-      <a href="/about">About</a>
+    <li class:active={$page.url.pathname === `${base}/about`}>
+      <a href={`${base}/about`}>About</a>
     </li>
-    <li class:active={$page.url.pathname === '/contact'}>
-      <a href="/contact">Contact</a>
+    <li class:active={$page.url.pathname === `${base}/contact`}>
+      <a href={`${base}/contact`}>Contact</a>
     </li>
   </ul>
 </nav>
+
 
 <style>
   li {

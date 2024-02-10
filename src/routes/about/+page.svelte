@@ -1,9 +1,13 @@
+<script>
+	import { base } from '$app/paths';
+  </script>
+
 <div class="about-container">
 	<div class="image-and-self-credit-container">
 		<img
-			src="/assets/south_kaibab_day-hike.png"
-			class="about-south_kaibab_image"
-			alt="South Kaibab Day Hike"
+		src={`${base}/assets/south_kaibab_day-hike.png`}
+		class="about-south_kaibab_image"
+		alt="South Kaibab Day Hike"
 		/>
 		<p class="giving-yourself-credit">
 			South Kaibab Trail @ Grand Canyon National Park. Arizona, USA. Photo by Jonathan Schimpf (me).
