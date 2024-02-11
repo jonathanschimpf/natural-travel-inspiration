@@ -16,6 +16,7 @@ jobs:
       - run: npm run build
         env:
           NODE_ENV: production
+          VITE_UNSPLASH_ACCESS_KEY: ${{ secrets.VITE_UNSPLASH_ACCESS_KEY }}
       - uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
