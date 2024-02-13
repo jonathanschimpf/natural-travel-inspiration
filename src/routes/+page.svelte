@@ -176,6 +176,7 @@
 		font-family: 'Futura', sans-serif;
 		text-align: center;
 		color: rgb(33, 33, 33);
+		font-weight: 900 !important;
 	}
 
 	.specific-smaller-down-arrow {
