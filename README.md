@@ -38,7 +38,7 @@ We all live in cities or suburbs, work from businesses, offices or work from hom
 
 <p>&nbsp;‏‏‎‏‏‎ ‎<strong>+</strong></p>
 
-`GitHub Pages` =>‏‏‎ ‎ ‏‏‎ ‎[Websites for you and your projects.](https://pages.github.com/)
+`Netlify` =>‏‏‎ ‎ ‏‏‎ ‎[Connect everything. Build anything.](https://www.netlify.com/)
 
 <p>&nbsp;<p>
 
