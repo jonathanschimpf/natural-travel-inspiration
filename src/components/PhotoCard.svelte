@@ -1,6 +1,8 @@
 <script>
 	export let photo;
 	export let onDownload;
+	const utmSource = 'Natural Travel Inspiration'; // Replace with your application's name
+	const utmMedium = 'referral';
 
 	function triggerDownload() {
 		console.log('Triggering download for photo:', photo);
@@ -12,49 +14,50 @@
 			console.error('Download function not provided!');
 		}
 	}
+
+	function createAttributionLink(url) {
+		return `${url}?utm_source=${utmSource}&utm_medium=${utmMedium}`;
+	}
 </script>
 
 <div class="photo-card">
 	<div class="image-container">
-		<!-- Image display -->
 		<img src={photo.urls.regular} alt={photo.alt_description || 'Unsplash Photo'} />
 	</div>
-
-	<!-- Photo information section -->
 	<div class="photo-information">
-		<!-- Location container -->
 		{#if photo.location.name}
 			<p class="location">{photo.location.name}</p>
 		{:else}
-			<!-- Unknown location display -->
 			<div class="unknown-location">
 				<p class="location ask-photographer">
 					Location Unknown — <span class="smaller-down-arrow"> ⬇ </span>Ask The Photographer Below
 				</p>
 			</div>
 		{/if}
-
-		<!-- Caption with credit links -->
 		<div class="caption">
 			<span class="credit-photo-by">Photo by </span>
 			<a
 				class="credit-links"
-				href={photo.user.links.html}
+				href={createAttributionLink(photo.user.links.html)}
 				target="_blank"
 				rel="noopener noreferrer"
 			>
 				{photo.user.name}
 			</a>
 			<span class="credit-on"> on </span>
-			<a class="credit-links" href="https://unsplash.com" target="_blank" rel="noopener noreferrer"
-				>Unsplash</a
+			<a 
+				class="credit-links" 
+				href={createAttributionLink('https://unsplash.com')}
+				target="_blank" 
+				rel="noopener noreferrer"
 			>
+				Unsplash
+			</a>
 		</div>
 	</div>
-
-	<!-- Download button -->
 	<button class="download-button" on:click={triggerDownload}>Download</button>
 </div>
+
 
 <style>
 	.photo-card {
