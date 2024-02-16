@@ -91,15 +91,18 @@
 	a.svelte-link:hover,
 	a.natural-travel-repository:hover {
 		text-decoration: none;
-		color: rgb(0, 145, 235) !important;
+		color: rgb(12, 161, 254) !important;
 		cursor: pointer !important;
 	}
 
 	.about-south_kaibab_image {
-		max-width: 600px;
-		border-radius: 2%;
-		margin-top: 1rem;
-	}
+	max-width: 600px;
+	width: 100%; 
+	height: auto; 
+	object-fit: cover; 
+	border-radius: 2%;
+	margin-top: 1rem;
+}
 
 	.about-writeup {
 		flex: 1 1 30%;

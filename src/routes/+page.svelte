@@ -74,10 +74,10 @@
 					const downloadUrl = URL.createObjectURL(blob);
 					const a = document.createElement('a');
 					a.href = downloadUrl;
-					a.download = filename; 
+					a.download = filename;
 					document.body.appendChild(a);
 					a.click();
-					document.body.removeChild(a); 
+					document.body.removeChild(a);
 					URL.revokeObjectURL(downloadUrl);
 				} else {
 					throw new Error('Failed to download the image from Unsplash');
@@ -208,11 +208,6 @@
 		font-size: 14px;
 	}
 
-	button:focus {
-		background-color: rgb(209, 209, 209);
-		color: #000 !important;
-		border: 2px solid #000;
-	}
 
 	button:hover {
 		background-color: rgb(209, 209, 209);

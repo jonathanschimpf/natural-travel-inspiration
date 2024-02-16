@@ -7,20 +7,8 @@
 <slot />
 
 <style>
-	:global(.download-button:focus) {
+	:global(.download-button, textarea, select, button, input:focus) {
 		outline: 0.5px solid rgb(69, 69, 69) !important;
-	}
-	:global(textarea:focus) {
-		outline: 0.5px solid rgb(0, 0, 0) !important;
-	}
-	:global(select:focus) {
-		outline: 0.5px solid rgb(0, 0, 0) !important;
-	}
-	:global(button:focus) {
-		outline: 0.5px solid rgb(0, 0, 0) !important;
-	}
-	:global(input:focus) {
-		outline: 0.5px solid rgb(0, 0, 0) !important;
 	}
 
 	:global(.pico-form input[type='search']) {
