@@ -208,11 +208,26 @@
 		font-size: 14px;
 	}
 
-
 	button:hover {
 		background-color: rgb(209, 209, 209);
 		color: #000000;
 		border-color: #000000;
+	}
+
+	/* RESET HOVER STYLES FOR
+	 MOBILE DEVICES BECAUSE REASONS */
+	@media (hover: none) {
+		button:hover {
+			background-color: #000000;
+			color: #fff;
+			border-color: transparent;
+		}
+
+		button:active {
+			background-color: rgb(209, 209, 209);
+			color: #000000;
+			border-color: #000000;
+		}
 	}
 
 	.pico-form {

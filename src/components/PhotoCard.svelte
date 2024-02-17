@@ -1,7 +1,7 @@
 <script>
 	export let photo;
 	export let onDownload;
-	const utmSource = 'Natural Travel Inspiration'; // Replace with your application's name
+	const utmSource = 'Natural Travel Inspiration'; 
 	const utmMedium = 'referral';
 
 	function triggerDownload() {
