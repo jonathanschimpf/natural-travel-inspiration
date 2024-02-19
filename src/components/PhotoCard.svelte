@@ -1,7 +1,7 @@
 <script>
 	export let photo;
 	export let onDownload;
-	const utmSource = 'Natural Travel Inspiration'; 
+	const utmSource = 'Natural Travel Inspiration';
 	const utmMedium = 'referral';
 
 	function triggerDownload() {
@@ -45,10 +45,10 @@
 				{photo.user.name}
 			</a>
 			<span class="credit-on"> on </span>
-			<a 
-				class="credit-links" 
+			<a
+				class="credit-links"
 				href={createAttributionLink('https://unsplash.com')}
-				target="_blank" 
+				target="_blank"
 				rel="noopener noreferrer"
 			>
 				Unsplash
@@ -57,7 +57,6 @@
 	</div>
 	<button class="download-button" on:click={triggerDownload}>Download</button>
 </div>
-
 
 <style>
 	.photo-card {
@@ -186,5 +185,21 @@
 
 	.download-button:hover {
 		background-color: #e0e0e0;
+	}
+
+	/* RESET HOVER STYLES FOR
+	 MOBILE DEVICES BECAUSE REASONS */
+	@media (hover: none) {
+		.download-button:hover {
+			background-color: rgb(209, 209, 209);
+			color: rgb(135, 135, 135);
+			border-color: transparent;
+		}
+
+		.download-button:active {
+			background-color: rgb(209, 209, 209);
+			color: rgb(135, 135, 135);
+			border-color: transparent;
+		}
 	}
 </style>

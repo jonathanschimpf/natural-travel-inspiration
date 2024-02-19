@@ -10,7 +10,13 @@
 		alt="South Kaibab Day Hike"
 		/>
 		<p class="giving-yourself-credit">
-			South Kaibab Trail @ Grand Canyon National Park. Arizona, USA. Photo by Jonathan Schimpf (me).
+			South Kaibab Trail @ Grand Canyon National Park. Arizona, USA. Photo by
+			<a
+			class="link-to-my-dev-page-tiny"
+			href="https://jonathanschimpf.dev"
+			rel="noreferrer"
+			target="_blank"
+			aria-label="JonathanSchimpf.dev">Jonathan Schimpf (me)</a>.
 		</p>
 	</div>
 
@@ -56,10 +62,26 @@
 
 <style>
 	.giving-yourself-credit {
-		font-size: 7px;
+		font-size: 8px;
 		color: rgb(147, 147, 147);
 	}
 
+	@media (max-width: 700px) {
+		.giving-yourself-credit  {
+			font-size: 7px;
+		}
+	}
+	
+	.link-to-my-dev-page-tiny {
+		text-decoration: none;
+		color: rgb(138, 138, 138);
+	}
+
+	.link-to-my-dev-page-tiny:hover {
+		text-decoration: none;
+		color: rgb(91, 91, 91) !important;
+		cursor: pointer !important;
+	}
 	.image-and-self-credit-container {
 		flex: 1 1 70%;
 		max-width: 600px;

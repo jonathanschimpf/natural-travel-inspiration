@@ -148,7 +148,7 @@
 
 <button on:click={getUniquePhoto}>Random Natural Inspiration</button>
 
-<p>
+<p class="more-specific-random-search-message">
 	<span class="specific-smaller-down-arrow"> ⬇ </span>Search For A More Specific Random Image Below
 </p>
 
@@ -166,11 +166,38 @@
 		}
 	}
 
-	@media (max-width: 500px) {
+	@media (max-width: 525px) {
+		.pico-form {
+			max-width: 400px !important;
+		}
+	}
+
+	@media (max-width: 425px) {
 		.pico-form {
 			max-width: 300px !important;
 		}
 	}
+
+	@media (max-width: 325px) {
+		.pico-form {
+			max-width: 200px !important;
+		}
+	}
+
+
+	@media (max-width: 425px) {
+		button {
+			max-width: 250px !important;
+		}
+	}
+
+	@media (max-width: 325px) {
+		button {
+			max-width: 200px !important;
+			font-size: 12px !important;
+		}
+	}
+
 
 	h1 {
 		font-family: 'Futura', sans-serif;
@@ -181,6 +208,11 @@
 
 	.specific-smaller-down-arrow {
 		font-size: 11px;
+	}
+	 	@media (max-width: 500px) {
+		.more-specific-random-search-message, .specific-smaller-down-arrow {
+			font-size: 3vw;
+		}
 	}
 
 	p {
@@ -238,6 +270,7 @@
 		margin: 2em auto;
 		max-width: 500px;
 		font-size: 14px;
+		padding-bottom: 5em;
 	}
 
 	.pico-form input[type='search'],
