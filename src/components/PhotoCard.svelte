@@ -64,15 +64,16 @@
 		flex-direction: column;
 		align-items: center;
 		max-width: 90vw;
-		margin: 1rem auto;
+		margin: auto;
 		text-align: center;
 		position: relative;
 		border-radius: 2%;
 		overflow: hidden;
+		height: 600px;
 	}
 
 	.image-container {
-		min-height: 500px; /* Adjust as needed */
+		height: 500px; 
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -81,14 +82,15 @@
 
 	.image-container img {
 		max-width: 100%;
-		max-height: 460px; /* Adjust as needed */
+		max-height: 460px; 
 		object-fit: cover;
+		border-radius: 15px !important;
 	}
 
-	/* Adjustments for photo information section */
+	
 	.photo-information {
-		padding: 1rem; /* Adjust padding as needed */
-		width: 100%; /* Ensure it takes full width */
+		padding: 1rem; 
+		width: 100%; 
 	}
 
 	.photo-card {
@@ -130,6 +132,7 @@
 		color: black;
 		font-size: 15px;
 		margin: 0;
+		margin-top: -20px;
 	}
 
 	.ask-photographer {
@@ -167,7 +170,7 @@
 		text-align: center;
 		justify-content: center;
 		background-color: rgb(209, 209, 209);
-		border-radius: 1px !important;
+		border-radius: 2px !important;
 		font-size: 8px;
 		color: rgb(135, 135, 135);
 		border: none;

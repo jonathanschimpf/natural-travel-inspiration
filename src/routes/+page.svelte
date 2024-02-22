@@ -3,34 +3,166 @@
 	import PhotoCard from '../components/PhotoCard.svelte';
 	import { writable } from 'svelte/store';
 
+	// PUBLIC ACCESS KEY FROM THE Unsplash COMPANY AND KEPT PRIVATEIN ENVIRONMENT VARIABLES
 	const accessKey = import.meta.env.VITE_UNSPLASH_ACCESS_KEY;
+	// THIS STORE MAINTAINS A SET OF PHOTO IDs THAT HAVE BEEN SEEN BY THE IP
 	const seenPhotos = writable(new Set());
-	const requestTimes = writable([]);
-
+	// Unsplash PHOTO IDs THAT ARE BLACKLISTED
+	// BECAUSE THEY ARE NOT A GREAT
+	// FIT FOR THIS PROJECT — WORK IN PROGRESS
+	const blacklist = new Set([
+		'UOkZT4JT8fw',
+		'parczv2B-ZM',
+		'xRr9Lz3xfYs',
+		'uYoVf9I6ANI',
+		'mmzuZhihp30',
+		'jqgsM3B9Fpo',
+		'tMzCrBkM99Y',
+		'IicyiaPYGGI',
+		'jAjvbh7vw9g',
+		'6c5ZTHnUUzA',
+		'OdBFUurPHjo',
+		'PSFfI7vbS3c',
+		'9JxubXPaidg',
+		'uNliRqlmBdg',
+		'jnJ89cuXMcs',
+		'F6Da4r2x5to',
+		'z8ct_Q3oCqM',
+		'RwHv7LgeC7s',
+		'2JwQoi-RBiI',
+		'3W9buupDI2k',
+		'10TSKDfW8X8',
+		'TkrRvwxjb_8',
+		'fsJB3KT2rj8',
+		'bBiuSdck8tU',
+		'h6zMgghzZr0',
+		'7AcMUSYRZpU',
+		'jin4W1HqgL4',
+		'El-egS_h_N4',
+		'MMJx78V7xS8',
+		'h5eLbyHzAcE',
+		'ITfHPUy0x9k',
+		's0vFLLZzOrs',
+		'v4e3JI7DDHI',
+		'vngzm4P2BTs',
+		'koy6FlCCy5s',
+		'sx6n_hgSmOc',
+		'9Z1KRIfpBTM',
+		'JP23z_-dA74',
+		'jt6QxZwSOCQ',
+		'8mCMQSq41gQ',
+		'Dqzsti6Fonc',
+		'KhsuK_wq-o4',
+		'rCFAY4WrbUY',
+		'4rDCa5hBlCs',
+		'hPxKmyCZ-Bs',
+		'KMYCSLP8uiU',
+		'jWv1ILisuSc',
+		'OOE4xAnBhKo',
+		'rleYWWVY4Pc',
+		'GVnUVP8cs1o',
+		'T8-kfC8W4b8',
+		'yjEt-n0qUl8',
+		'LNYdZutqsi0',
+		'd2aXuZD2kUc',
+		'OS0D-aJ54CY',
+		'6ArTTluciuA',
+		'6loxuv3aXkg',
+		'XxvXRmsH860',
+		'qPPWNeFVLFQ',
+		'pmhoQj3Ce1E',
+		'6-C0VRsagUw',
+		'8SXaMMWCTGc',
+		'h5wvMCdOV3w',
+		'CoIqQVwEGY0',
+		'I3jSS2YfmcU',
+		'0uO6qhd6Bi8',
+		'gofWd3XkKo0',
+		'NliTYm_jD5o',
+		'zPCj7SKoub8',
+		'gvb84QdErNs',
+		'-N_UwPdUs7E',
+		'choc7LYd98I',
+		'Tw_rTjWMuGo',
+		'WgT_B4mN0BA',
+		'yZNGVL_fWj8',
+		'pT8mKX61STI',
+		'NjT4O7WYmwk',
+		'wQImoykAwGs',
+		'cS6YoRIAK2w',
+		'_EMkxLdko9k',
+		'vzVGHfxZIZ8',
+		'F5zoQfoWtbM',
+		'U86FnrpRR0k',
+		'fG4PYBDmAkI',
+		'9Gs0qk9Z3WU',
+		'h3ki3bbJWk0',
+		'xjhgZCuvg3k',
+		'fMIsAL72P3U',
+		'5-jtsfuaLBw',
+		'AnKC9klnyKk',
+		'Ee0894MAyok',
+		'gyIRjKPXupE',
+		'jFCViYFYcus',
+		'eOpewngf68w',
+		'Rfflri94rs8',
+		'Lh2qwkppkf8',
+		'RdouF_LXaYI',
+		'049M_crau5k',
+		'IVbFRSEYGuA',
+		'sNVE_h_7naU',
+		'7KLa-xLbSXA',
+		'poXhq_-eANA',
+		'utoPXPPr5zc',
+		'jCL98LGaeoE',
+		'rFn64K0YQrI',
+		'vpkCTrnV2eE',
+		'JiphyElpixM',
+		'ciHYaPb8lUA',
+		'c1Jp-fo53U8',
+		'WK4lhYGRIzw',
+		'JWa5jZ1LkJY',
+		'MPKFmy_Xc_A',
+		'NEqEC7qa9FM',
+		'vUNQaTtZeOo',
+		'c4cWawGBFv8',
+		'rckx2mE9rOw',
+		'cCthPLHmrzI',
+		'dhw3LSuWyks',
+		'3U3Qegatt2o',
+		'QsWG0kjPQRY',
+		'42MaenKbPe0',
+		'9K9ipjhDdks',
+		'sFLVTqNzG2I',
+		'7ne3hNnojvU',
+		'j6dqEl13is4',
+		'hpTH5b6mo2s',
+		'19SC2oaVZW0',
+		'u4fWwlBhHJ8',
+		'ugnrXk1129g',
+		'Yl9YFBtZFcQ',
+		'SaWeuWtLQqE',
+		'NP_GHS5Bb-s',
+		'yu2Ay7LQmnY',
+		'_ReQ6GSqSaM',
+		'wxZBV8GiPlc',
+		'1OtUkD_8svc',
+		'PXXtq6bp6cs',
+		'qN8AMtHZ2nY',
+		'J2xHOsMNIn0',
+		'SDoMyyylpnc',
+		'SDoMyyylpnc'
+	]);
+	// HOLDS THE CURRENT PHOTO OBJECT
 	let photo;
+	// STORES VARIOUS ERROR MESSSAGES
 	let error = '';
+	// SEARCH TERM ENTERED BY THE USER!
 	let searchTerm = '';
 
-	const maxRequestsPerHour = 50;
-	const oneHour = 3600 * 1000;
-
-	function canMakeRequest() {
-		const now = Date.now();
-		$requestTimes = $requestTimes.filter((time) => now - time < oneHour);
-		return $requestTimes.length < maxRequestsPerHour;
-	}
-
-	function recordRequestTime() {
-		$requestTimes.push(Date.now());
-	}
-
+	// FETCHES A RANDOM PHOTO FROM THE Unsplash API
+	// BASED ON the getRandomKeyword FUNCTION BELOW
 	async function fetchPhoto(query) {
-		if (!canMakeRequest()) {
-			error = 'Rate limit reached. Please wait.';
-			return null;
-		}
-
-		// Trim whitespace and check if the term includes spaces
 		const trimmedQuery = query.trim();
 		const isPhraseSearch = trimmedQuery.includes(' ');
 		const encodedQuery = isPhraseSearch
@@ -38,12 +170,12 @@
 			: encodeURIComponent(trimmedQuery);
 
 		const url = `https://api.unsplash.com/photos/random?client_id=${accessKey}&query=${encodedQuery}`;
+
 		try {
 			const response = await fetch(url);
 			if (!response.ok) {
 				throw new Error('Error fetching photo.');
 			}
-			recordRequestTime();
 			const newPhoto = await response.json();
 			return newPhoto;
 		} catch (err) {
@@ -90,25 +222,39 @@
 		}
 	}
 
-	// Function to retrieve a unique photo
+	const MAX_ATTEMPTS = 20; // TRY 20 TIMES TO FIND A NON-BLACKLISTED ID (PHOTO)
+	const RETRY_DELAY = 1000; // WAIT1 SECOND BEFORE TRYING AGAIN
+
 	async function getUniquePhoto() {
-		let uniquePhoto = null;
-		while (!uniquePhoto) {
+		let attempts = 0;
+		let found = false;
+
+		while (!found && attempts < MAX_ATTEMPTS) {
+			attempts++;
 			const randomKeyword = getRandomKeyword();
 			const potentialPhoto = await fetchPhoto(randomKeyword);
-			if (potentialPhoto && !$seenPhotos.has(potentialPhoto.id)) {
-				uniquePhoto = potentialPhoto;
-				$seenPhotos.add(potentialPhoto.id);
-			}
+
+			if (potentialPhoto && !blacklist.has(potentialPhoto.id)) {
+				if (!$seenPhotos.has(potentialPhoto.id)) {
+					photo = potentialPhoto;
+					$seenPhotos.add(potentialPhoto.id);
+					found = true;
+				}
+			} // This closing brace ends the outer if statement
+
+			// WHILE LOOP WILL CONTINUE UNTIL NON BLACKLISTED ID IS FOUND
 		}
-		photo = uniquePhoto;
+
+		if (!found) {
+			// ANOTHER ATTEMPT SCHEDULING
+			setTimeout(getUniquePhoto, RETRY_DELAY);
+		}
 	}
 
-	// Function to handle search based on the searchTerm
 	async function handleSearch() {
 		if (searchTerm.trim()) {
 			const searchPhoto = await fetchPhoto(searchTerm);
-			if (searchPhoto && !$seenPhotos.has(searchPhoto.id)) {
+			if (searchPhoto && !$seenPhotos.has(searchPhoto.id) && !blacklist.has(searchPhoto.id)) {
 				photo = searchPhoto;
 				$seenPhotos.add(searchPhoto.id);
 			}
@@ -116,23 +262,37 @@
 		}
 	}
 
-	// Function to get a random keyword from an array
 	function getRandomKeyword() {
 		const keywords = ['mountain', 'hike', 'vista', 'cliff', 'forest', 'river'];
 		return keywords[Math.floor(Math.random() * keywords.length)];
 	}
 
 	onMount(async () => {
-		try {
-			const initialPhoto = await fetchPhoto('nature');
-			if (initialPhoto) {
-				photo = initialPhoto;
-			} else {
-				error = 'Could not load initial photo.';
+		let success = false;
+		let attempts = 0;
+		while (!success && attempts < MAX_ATTEMPTS) {
+			attempts++;
+			try {
+				const initialPhoto = await fetchPhoto('nature');
+				if (initialPhoto && !blacklist.has(initialPhoto.id)) {
+					photo = initialPhoto;
+					seenPhotos.update((set) => {
+						set.add(initialPhoto.id);
+						return set;
+					});
+					success = true;
+				} else {
+					//FETCH AGAIN AFTER A DELAY IF THE PHOTO WAS ON THE BLACKLIST
+					await new Promise((r) => setTimeout(r, RETRY_DELAY));
+				}
+			} catch (e) {
+				error = 'Whoops! Refresh your browser, please.';
+				console.error(e);
 			}
-		} catch (e) {
-			error = 'There was an error during the initial photo fetch.';
-			console.error(e);
+		}
+		if (!success) {
+			// IF ONLY BLACKLISTED PHOTOS ARE FOUND AFTER MANY ATTEMPTS DISPLAY A MESSAGE
+			error = 'Please try again. Refresh your browser!';
 		}
 	});
 </script>
@@ -146,10 +306,14 @@
 	<p>Loading...</p>
 {/if}
 
+<p class="click-below-message">
+	More <span class="smaller-down-arrow"> ⬇ </span>
+</p>
+
 <button on:click={getUniquePhoto}>Random Natural Inspiration</button>
 
-<p class="more-specific-random-search-message">
-	<span class="specific-smaller-down-arrow"> ⬇ </span>Search For A More Specific Random Image Below
+<p class="click-below-message-longer">
+	<span class="smaller-down-arrow"> ⬇ </span>Search For A More Specific Random Image Below
 </p>
 
 <form on:submit|preventDefault={handleSearch} class="pico-form">
@@ -184,7 +348,6 @@
 		}
 	}
 
-
 	@media (max-width: 425px) {
 		button {
 			max-width: 250px !important;
@@ -198,20 +361,36 @@
 		}
 	}
 
-
 	h1 {
 		font-family: 'Futura', sans-serif;
 		text-align: center;
 		color: rgb(33, 33, 33);
 		font-weight: 900 !important;
+		margin-bottom: -10px;
 	}
 
-	.specific-smaller-down-arrow {
-		font-size: 11px;
+	.smaller-down-arrow {
+		font-size: 8px;
 	}
-	 	@media (max-width: 500px) {
-		.more-specific-random-search-message, .specific-smaller-down-arrow {
-			font-size: 3vw;
+
+	.click-below-message {
+		margin-top: -30px;
+	}
+	@media (max-width: 525px) {
+		.click-below-message {
+			font-size: 10px;
+		}
+	}
+
+	@media (max-width: 525px) {
+		.smaller-down-arrow {
+			font-size: 8px;
+		}
+	}
+
+	@media (max-width: 525px) {
+		.click-below-message-longer {
+			font-size: 11px;
 		}
 	}
 

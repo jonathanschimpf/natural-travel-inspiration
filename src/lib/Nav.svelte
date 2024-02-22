@@ -23,8 +23,8 @@
     font-size: 22px;
   }
   @media (max-width: 500px) {
-		li {
-			font-size: 5vw;
+		li > a {
+			font-size: 3.5vw !important;
 		}
 	}
   nav {
