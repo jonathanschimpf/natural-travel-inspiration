@@ -259,7 +259,22 @@
 		'XxDJ6bgq7Pw',
 		'P3DxOe-OJGA',
 		'-IZ2sgQKIhM',
-		'uzwTVzXqZcg'
+		'uzwTVzXqZcg',
+		'HgQOh4s_M-U',
+		'ap6baZcbAho',
+		'T7s_TnKO-dk',
+		'FO7bKvgETgQ',
+		'NWleDEFmYDg',
+		'gcOMSDzWvR8',
+		'Ke-ENe3ByiQ',
+		'4-KqFyHKRdo',
+		'oj8XzDDpK40',
+		'e6f8IaRQY7M',
+		'hnw3Al47-KE',
+		'ipH70OUZDrk',
+		'1awcLzy32Dg',
+		'FAn-NWH8Bzw',
+		'd6kSvT2xZQo'
 	]);
 	// HOLDS THE CURRENT PHOTO OBJECT
 	let photo;
@@ -271,24 +286,33 @@
 	// FETCHES A RANDOM PHOTO FROM THE Unsplash API
 	// BASED ON the getRandomKeyword FUNCTION BELOW ON LINE 281
 	async function fetchPhoto(query) {
-    const trimmedQuery = query.trim();
-    // Encodes the whole trimmed query, not just individual keywords
-    const encodedQuery = encodeURIComponent(trimmedQuery);
+		// TRIM THE QUERY AND CHECK FOR SPACES (INDICATING A PHRASE SEARCH?)
+		const trimmedQuery = query.trim();
+		const isPhraseSearch = trimmedQuery.includes(' ');
+		// ENCLOSE ENTIRE QUERY IN QUOTATIONS TO 
+		// HOPEFULLY ALLOW IT TO BE TREATED AS A PHRASE?
+		const encodedQuery = isPhraseSearch
+			? encodeURIComponent(`"${trimmedQuery}"`)
+			: encodeURIComponent(trimmedQuery);
 
-    const url = `https://api.unsplash.com/photos/random?client_id=${accessKey}&query=${encodedQuery}`;
+		// URL CONSTRUCT FOR API REQUEST
+		const url = `https://api.unsplash.com/photos/random?client_id=${accessKey}&query=${encodedQuery}`;
 
-    try {
-        const response = await fetch(url);
-        if (!response.ok) {
-            throw new Error('Error fetching photo.');
-        }
-        const newPhoto = await response.json();
-        return newPhoto;
-    } catch (err) {
-        error = 'Error fetching new photo.';
-        return null;
-    }
-}
+		
+
+		try {
+			const response = await fetch(url);
+			if (!response.ok) {
+				throw new Error('Error fetching photo.');
+			}
+			const newPhoto = await response.json();
+			return newPhoto;
+		} catch (err) {
+			error = 'Error fetching new photo.';
+			console.error('Fetch error:', err);
+			return null;
+		}
+	}
 
 	// THIS FUNCTION IS TRIGGERED WHEN THE USER CLICKS THE 'Download' BUTTON UNDER THE IMAGE ON THIS '+page.svelte'.
 	//  IT MAKES AN ADDITIONAL REQUEST TO THE Unsplash API FOR THE DOWNLOAD. IT THEN TRIGGERS THE BROWSER TO DOWNLOAD.
@@ -367,14 +391,17 @@
 	// FETCHING A PHOTOGRAPH BASED ON THE SEARCH TERM ENTERED BY THE USER
 	async function handleSearch() {
 		if (searchTerm.trim()) {
+			// Log the search term when the search is triggered
+			console.log('Searching for:', searchTerm);
 			const searchPhoto = await fetchPhoto(searchTerm);
 			if (searchPhoto && !$seenPhotos.has(searchPhoto.id) && !blacklist.has(searchPhoto.id)) {
 				photo = searchPhoto;
 				$seenPhotos.add(searchPhoto.id);
 			}
-			searchTerm = '';
+			searchTerm = ''; // RESET searchTerm AFTER SEARCH?
 		}
 	}
+
 	// RETURNS ONE OF THE RANDOM KEYWORDS BELOW FROM THE ARRAY
 	// I'VE ENTERED BELOW THAT ARE THE BACKBONE OF CONTENT FOR THIS 'Natural Travel Inspiration' PROJECT
 	function getRandomKeyword() {
@@ -482,7 +509,7 @@
 
 	.searching-for-inspiration {
 		font-family: 'Futura', sans-serif !important;
-		font-weight: bold !important;
+		font-weight: bolder !important;
 	}
 
 	h1 {
@@ -499,7 +526,8 @@
 
 	.click-below-message,
 	.click-below-message-longer {
-		margin-top: 30px;
+		margin-top: 25px;
+		margin-bottom: 0;
 		padding: 0;
 	}
 	@media (max-width: 525px) {
@@ -531,7 +559,7 @@
 	button {
 		max-width: 300px;
 		width: 100%;
-		margin: 1em auto;
+		margin: 0.15rem auto;
 		display: flex; /* FLEX TO CENTER SEARCH BUTTON TEXT  */
 		align-items: center; /* BUTTON TEXT CENTERED VERTICALLY */
 		justify-content: center; /* BUTTON TEXT CENTERED HORIZONTALLY */
@@ -571,8 +599,8 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		gap: 0.5rem;
-		margin: 2em auto;
+		gap: 0.25rem;
+		margin:0.25em auto;
 		max-width: 500px;
 		font-size: 14px;
 		padding-bottom: 5em;

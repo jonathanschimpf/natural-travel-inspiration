@@ -70,6 +70,7 @@
 		align-items: center;
 		max-width: 95vw;
 		margin: auto;
+		margin-bottom: -20px;
 		text-align: center;
 		position: relative;
 		border-radius: 2%;
@@ -150,15 +151,15 @@
 		justify-content: center;
 		background-color: rgb(209, 209, 209);
 		border-radius: 2px !important;
-		font-size: 8px;
+		font-size: 7px;
 		color: rgb(135, 135, 135);
 		border: none;
 		padding: 0.5em 1em;
 		cursor: pointer;
-		max-width: 45px;
+		max-width: 40px;
 		height: 12px;
 		width: 100%;
-		outline: 1px solid rgb(135, 135, 135);
+		outline: 1px solid rgb(180, 180, 180);
 	}
 
 	.download-button:focus {
@@ -166,7 +167,7 @@
 	}
 
 	.download-button:hover {
-		background-color: #e0e0e0;
+		background-color: #e2e2e291;
 	}
 
 	/* RESET HOVER STYLES FOR

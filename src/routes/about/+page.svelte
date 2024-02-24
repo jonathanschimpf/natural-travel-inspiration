@@ -1,33 +1,35 @@
 <script>
 	import { base } from '$app/paths';
-  </script>
+</script>
 
 <div class="about-container">
 	<div class="image-and-self-credit-container">
 		<img
-		src={`${base}/assets/south_kaibab_day-hike.png`}
-		class="about-south_kaibab_image"
-		alt="South Kaibab Day Hike"
+			src={`${base}/assets/south_kaibab_day-hike.png`}
+			class="about-south_kaibab_image"
+			alt="South Kaibab Day Hike"
 		/>
 		<p class="giving-yourself-credit">
 			South Kaibab Trail @ Grand Canyon National Park. Arizona, USA. Photo by
 			<a
-			class="link-to-my-dev-page-tiny"
-			href="https://jonathanschimpf.dev"
-			rel="noreferrer"
-			target="_blank"
-			aria-label="JonathanSchimpf.dev">Jonathan Schimpf (me)</a>.
+				class="link-to-my-dev-page-tiny"
+				href="https://jonathanschimpf.dev"
+				rel="noreferrer"
+				target="_blank"
+				aria-label="JonathanSchimpf.dev">Jonathan Schimpf (me)</a
+			>.
 		</p>
 	</div>
 
 	<p class="about-writeup">
-		<span class="natural-span">Natural Travel Inspiration</span> — we all live in cities or suburbs
+		<span class="natural-span">Natural Travel Inspiration</span> — We all live in cities or suburbs
 		and we work from businesses, offices or work from home. Having manmade structures be the main
-		setting where many of us spend most of our time, we should get out and explore. Nature is
-		beautiful and life is short, we should enjoy it while we can. I've lived and worked in and
-		around a city for a long time, but in the evenings or on weekends I have always tried to get out
-		and enjoy what was here before I was born. Many of my travels have revolved around it. So I made
-		this web project as a way to inspire myself and others. It pulls random images from the
+		setting where many of us spend most of our time, we should take the time to explore. Given the
+		beauty of nature and the shortness of our lifetimes, we should enjoy it while we can. I've lived
+		and worked in and around a city for a long time, but in the evenings or on weekends I have
+		always sought out opportunities to get out and enjoy what was here before I was born. Many of my
+		travels have revolved around it. So I made this web project as a way to inspire myself and
+		others. It pulls random images from the
 		<a
 			class="unsplash-link"
 			href="https://www.unsplash.com"
@@ -47,7 +49,7 @@
 			target="_blank"
 			aria-label="SvelteKit">SvelteKit</a
 		>
-		and I don't believe it will be the last. You can check out the GitHub repository
+		 (a powerful and flexible framework for building web applications) and I don't believe it will be the last. I really enjoy it.You can check out the GitHub repository
 		<a
 			class="natural-travel-repository"
 			href="https://github.com/jonathanschimpf/natural-travel-inspiration"
@@ -67,11 +69,11 @@
 	}
 
 	@media (max-width: 700px) {
-		.giving-yourself-credit  {
+		.giving-yourself-credit {
 			font-size: 7px;
 		}
 	}
-	
+
 	.link-to-my-dev-page-tiny {
 		text-decoration: none;
 		color: rgb(138, 138, 138);
@@ -118,13 +120,13 @@
 	}
 
 	.about-south_kaibab_image {
-	max-width: 600px;
-	width: 100%; 
-	height: auto; 
-	object-fit: cover; 
-	border-radius: 2%;
-	margin-top: 1rem;
-}
+		max-width: 600px;
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+		border-radius: 2%;
+		margin-top: 1rem;
+	}
 
 	.about-writeup {
 		flex: 1 1 30%;
