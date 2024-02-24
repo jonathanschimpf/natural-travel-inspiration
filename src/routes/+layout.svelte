@@ -16,7 +16,7 @@
 	}
 
 	:global(body, html) {
-		background-color: rgb(209, 209, 209) !important; /* More specific override */
+		background-color: rgb(209, 209, 209) !important; /* SPECIFIC OVERRIDE */
 		font-family: 'Futura', sans-serif; /* Futura OBVIOUSLY */
 	}
 </style>

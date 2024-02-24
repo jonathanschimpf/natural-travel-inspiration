@@ -3,7 +3,7 @@
 	import PhotoCard from '../components/PhotoCard.svelte';
 	import { writable } from 'svelte/store';
 
-	// PUBLIC ACCESS KEY FROM THE Unsplash COMPANY AND KEPT PRIVATEIN ENVIRONMENT VARIABLES
+	// PUBLIC ACCESS KEY FROM THE Unsplash COMPANY AND KEPT PRIVATE IN ENVIRONMENT VARIABLES
 	const accessKey = import.meta.env.VITE_UNSPLASH_ACCESS_KEY;
 	// THIS STORE MAINTAINS A SET OF PHOTO IDs THAT HAVE BEEN SEEN BY THE IP
 	const seenPhotos = writable(new Set());
@@ -251,7 +251,8 @@
 		'a47qPRbHx7g',
 		'3LwMyv3FiUE',
 		'KRAazAqquaQ',
-		'OsMWWAL0saQ'
+		'OsMWWAL0saQ',
+		'a2zdgkDzFo8'
 	]);
 	// HOLDS THE CURRENT PHOTO OBJECT
 	let photo;
@@ -356,7 +357,8 @@
 		}
 	}
 
-	// HANDLES THE SEARCH FORM SUBMISSION, FETCHING A PHOTOGRAPH BASED ON THE SEARCH TERM ENTERED BY THE USER
+	// HANDLES THE SEARCH FORM SUBMISSION,
+	// FETCHING A PHOTOGRAPH BASED ON THE SEARCH TERM ENTERED BY THE USER
 	async function handleSearch() {
 		if (searchTerm.trim()) {
 			const searchPhoto = await fetchPhoto(searchTerm);
@@ -407,6 +409,7 @@
 	});
 </script>
 
+<!-- HTML + DYNAMIC CONTENT COMPONENT + PICO.CSS LIGHTWEIGHT FRAMEWORK (INSTEAD OF BOOTSTRAP ALWAYS) -->
 <h1>Natural Travel Inspiration ⛰️</h1>
 {#if error}
 	<p>{error}</p>
@@ -480,7 +483,6 @@
 		text-align: center;
 		color: rgb(33, 33, 33);
 		font-weight: 900 !important;
-		margin-bottom: -10px;
 	}
 
 	.smaller-down-arrow {
