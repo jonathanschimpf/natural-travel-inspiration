@@ -6,7 +6,7 @@
 <nav aria-label="Main navigation">
   <ul class="menu">
     <li class:active={$page.url.pathname === `${base}/`}>
-      <a href={`${base}/`}>Home</a>
+      <a href={`${base}/`}>+Inspiration</a>
     </li>
     <li class:active={$page.url.pathname === `${base}/about`}>
       <a href={`${base}/about`}>About</a>

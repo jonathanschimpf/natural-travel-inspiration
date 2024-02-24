@@ -252,7 +252,14 @@
 		'3LwMyv3FiUE',
 		'KRAazAqquaQ',
 		'OsMWWAL0saQ',
-		'a2zdgkDzFo8'
+		'a2zdgkDzFo8',
+		'9pvTSsNV2T4',
+		'hfLsVDvnKwY',
+		'-KdfxdUEVv0',
+		'XxDJ6bgq7Pw',
+		'P3DxOe-OJGA',
+		'-IZ2sgQKIhM',
+		'uzwTVzXqZcg'
 	]);
 	// HOLDS THE CURRENT PHOTO OBJECT
 	let photo;
@@ -264,26 +271,25 @@
 	// FETCHES A RANDOM PHOTO FROM THE Unsplash API
 	// BASED ON the getRandomKeyword FUNCTION BELOW ON LINE 281
 	async function fetchPhoto(query) {
-		const trimmedQuery = query.trim();
-		const isPhraseSearch = trimmedQuery.includes(' ');
-		const encodedQuery = isPhraseSearch
-			? encodeURIComponent(`"${trimmedQuery}"`)
-			: encodeURIComponent(trimmedQuery);
+    const trimmedQuery = query.trim();
+    // Encodes the whole trimmed query, not just individual keywords
+    const encodedQuery = encodeURIComponent(trimmedQuery);
 
-		const url = `https://api.unsplash.com/photos/random?client_id=${accessKey}&query=${encodedQuery}`;
+    const url = `https://api.unsplash.com/photos/random?client_id=${accessKey}&query=${encodedQuery}`;
 
-		try {
-			const response = await fetch(url);
-			if (!response.ok) {
-				throw new Error('Error fetching photo.');
-			}
-			const newPhoto = await response.json();
-			return newPhoto;
-		} catch (err) {
-			error = 'Error fetching new photo.';
-			return null;
-		}
-	}
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error('Error fetching photo.');
+        }
+        const newPhoto = await response.json();
+        return newPhoto;
+    } catch (err) {
+        error = 'Error fetching new photo.';
+        return null;
+    }
+}
+
 	// THIS FUNCTION IS TRIGGERED WHEN THE USER CLICKS THE 'Download' BUTTON UNDER THE IMAGE ON THIS '+page.svelte'.
 	//  IT MAKES AN ADDITIONAL REQUEST TO THE Unsplash API FOR THE DOWNLOAD. IT THEN TRIGGERS THE BROWSER TO DOWNLOAD.
 	async function onDownload(photo, filename) {
@@ -476,6 +482,7 @@
 
 	.searching-for-inspiration {
 		font-family: 'Futura', sans-serif !important;
+		font-weight: bold !important;
 	}
 
 	h1 {
@@ -483,6 +490,7 @@
 		text-align: center;
 		color: rgb(33, 33, 33);
 		font-weight: 900 !important;
+		margin-bottom: 10px !important;
 	}
 
 	.smaller-down-arrow {
