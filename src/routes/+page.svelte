@@ -7,6 +7,7 @@
 	const accessKey = import.meta.env.VITE_UNSPLASH_ACCESS_KEY;
 	// THIS STORE MAINTAINS A SET OF PHOTO IDs THAT HAVE BEEN SEEN BY THE IP
 	const seenPhotos = writable(new Set());
+
 	// Unsplash PHOTO IDs THAT ARE BLACKLISTED
 	// BECAUSE THEY ARE NOT A GREAT
 	// FIT FOR THIS PROJECT — WORK IN PROGRESS
@@ -151,7 +152,106 @@
 		'qN8AMtHZ2nY',
 		'J2xHOsMNIn0',
 		'SDoMyyylpnc',
-		'SDoMyyylpnc'
+		'SDoMyyylpnc',
+		'3Kv48NS4WUU',
+		'3Ltn2aWVNcM',
+		'vgazHbc0XWg',
+		'8UVZHt8AUoQ',
+		'Ed_DchxFfrU',
+		'uilVSfUGnWk',
+		'dSxAggoqPAk',
+		'F_moKY91WYc',
+		'2ZjJ7T6EeOg',
+		'mLXmJb3In8Q',
+		'T69h1_YfR-w',
+		'kIR55P1eXJI',
+		'mFbrMEVKCkc',
+		'UFnHt94r91w',
+		'pt7QzB4ZLWw',
+		'6xh7H5tWj9c',
+		'bnUXhIyf0i0',
+		'WJkc3xZjSXw',
+		'5S6_c_yCIwE',
+		'd4feocYfzAM',
+		'nTRDnDdDYk8',
+		'Rr3B0LH7W3k',
+		'7NBO76G5JsE',
+		'0D8_tYHIy0o',
+		'lsGWd4KgCD4',
+		'JiuVoQd-ZLk',
+		'qzgN45hseN0',
+		'ZeNABWS-k4Q',
+		'Dm-qxdynoEc',
+		'__0Yg6-lvP8',
+		'qd-dvtbS45Q',
+		'4ooRozrZdLM',
+		'wKjIeK4QSnk',
+		'4QWR5geRC9I',
+		'PjjMG6VyHs4',
+		'TMNyU2MFTGw',
+		'lIat5Z-N3JA',
+		'QMnYC8WVFM8',
+		'SBiVq9eWEtQ',
+		'uaO9cd5BQPc',
+		'sp-p7uuT0tw',
+		'sp-p7uuT0tw',
+		'Yh6K2eTr_FY',
+		'GzcI_rMNclY',
+		'CtxRK04XMKs',
+		'mppuJZUzhI0',
+		'AqXqL_V9qpM',
+		'6csuZQ9oZcI',
+		'TRhGEGdw-YY',
+		'NQSWvyVRIJk',
+		'FMWXjhIkmO0',
+		'VHUbeZMH6Yg',
+		'uJnUhGtI_Pk',
+		'hry9juw-x5k',
+		'50bzI1F6urA',
+		'J2jtcRbiL-4',
+		'zK049OFP4uI',
+		'enXOyujvTXQ',
+		'z_HDrTQxNEI',
+		'z_HDrTQxNEI',
+		'zXVk8mNl9M0',
+		'a0nbRUHimZw',
+		'a0nbRUHimZw',
+		'S9miGKjxmb4',
+		'uyNMxCFYMvo',
+		'gzMvo6cR6J0',
+		'b4l3Mn4pRKk',
+		'D4TooCIEyF4',
+		'2JuKK2ticlk',
+		'buF62ewDLcQ',
+		'Fz77XHwFYg0',
+		'WVEBqXRGcy8',
+		'xY_6ZENqcfo',
+		'TBl1-EKYFjs',
+		'KYTT8L5JLDs',
+		'XAmgFP_GvVA',
+		'5VDFTgpwV2g',
+		'whDrFMucHkc',
+		'G8rRItjrwkA',
+		'HkNKkRoiGk8',
+		'igX2deuD9lc',
+		'xg8z_KhSorQ',
+		'5G2G59V6IXg',
+		'LMq1gYdygxo',
+		'Qdi8UvGd1Ww',
+		'-BZc9Ee1qo0',
+		'RkBTPqPEGDo',
+		'RhjVGxILcqE',
+		'UnKqaCtnHwE',
+		'9YubwxAIpw0',
+		'Kvc5x3Bvfd4',
+		'jwTvCQQJXh0',
+		'0Kyp7uO-3RQ',
+		'3okHTqD9yUA',
+		'i9Q9bc-WgfE',
+		'a47qPRbHx7g',
+		'3LwMyv3FiUE',
+		'KRAazAqquaQ',
+		'OsMWWAL0saQ'
 	]);
 	// HOLDS THE CURRENT PHOTO OBJECT
 	let photo;
@@ -161,7 +261,7 @@
 	let searchTerm = '';
 
 	// FETCHES A RANDOM PHOTO FROM THE Unsplash API
-	// BASED ON the getRandomKeyword FUNCTION BELOW
+	// BASED ON the getRandomKeyword FUNCTION BELOW ON LINE 281
 	async function fetchPhoto(query) {
 		const trimmedQuery = query.trim();
 		const isPhraseSearch = trimmedQuery.includes(' ');
@@ -183,7 +283,8 @@
 			return null;
 		}
 	}
-
+	// THIS FUNCTION IS TRIGGERED WHEN THE USER CLICKS THE 'Download' BUTTON UNDER THE IMAGE ON THIS '+page.svelte'.
+	//  IT MAKES AN ADDITIONAL REQUEST TO THE Unsplash API FOR THE DOWNLOAD. IT THEN TRIGGERS THE BROWSER TO DOWNLOAD.
 	async function onDownload(photo, filename) {
 		try {
 			const downloadLocationResponse = await fetch(
@@ -225,6 +326,8 @@
 	const MAX_ATTEMPTS = 20; // TRY 20 TIMES TO FIND A NON-BLACKLISTED ID (PHOTO)
 	const RETRY_DELAY = 1000; // WAIT1 SECOND BEFORE TRYING AGAIN
 
+	// THIS FUNCTION MAKES MULTIPLE ATTEMPTS TO FETCH
+	// A UNIQUE PHOTO THAT IS NOT ON THE BLACKLIST ABOVE
 	async function getUniquePhoto() {
 		let attempts = 0;
 		let found = false;
@@ -234,23 +337,26 @@
 			const randomKeyword = getRandomKeyword();
 			const potentialPhoto = await fetchPhoto(randomKeyword);
 
-			if (potentialPhoto && !blacklist.has(potentialPhoto.id)) {
+			if (
+				potentialPhoto &&
+				!blacklist.has(potentialPhoto.id) &&
+				potentialPhoto.location &&
+				potentialPhoto.location.name
+			) {
 				if (!$seenPhotos.has(potentialPhoto.id)) {
 					photo = potentialPhoto;
 					$seenPhotos.add(potentialPhoto.id);
 					found = true;
 				}
-			} // This closing brace ends the outer if statement
-
-			// WHILE LOOP WILL CONTINUE UNTIL NON BLACKLISTED ID IS FOUND
+			}
 		}
 
 		if (!found) {
-			// ANOTHER ATTEMPT SCHEDULING
 			setTimeout(getUniquePhoto, RETRY_DELAY);
 		}
 	}
 
+	// HANDLES THE SEARCH FORM SUBMISSION, FETCHING A PHOTOGRAPH BASED ON THE SEARCH TERM ENTERED BY THE USER
 	async function handleSearch() {
 		if (searchTerm.trim()) {
 			const searchPhoto = await fetchPhoto(searchTerm);
@@ -261,12 +367,13 @@
 			searchTerm = '';
 		}
 	}
-
+	// RETURNS ONE OF THE RANDOM KEYWORDS BELOW FROM THE ARRAY
+	// I'VE ENTERED BELOW THAT ARE THE BACKBONE OF CONTENT FOR THIS 'Natural Travel Inspiration' PROJECT
 	function getRandomKeyword() {
 		const keywords = ['mountain', 'hike', 'vista', 'cliff', 'forest', 'river'];
 		return keywords[Math.floor(Math.random() * keywords.length)];
 	}
-
+	// LIFECYCLE HOOK THAT RUNS WHEN THE COMPONENT IS INITIALLY RENDERED
 	onMount(async () => {
 		let success = false;
 		let attempts = 0;
@@ -274,7 +381,12 @@
 			attempts++;
 			try {
 				const initialPhoto = await fetchPhoto('nature');
-				if (initialPhoto && !blacklist.has(initialPhoto.id)) {
+				if (
+					initialPhoto &&
+					!blacklist.has(initialPhoto.id) &&
+					initialPhoto.location &&
+					initialPhoto.location.name
+				) {
 					photo = initialPhoto;
 					seenPhotos.update((set) => {
 						set.add(initialPhoto.id);
@@ -282,7 +394,6 @@
 					});
 					success = true;
 				} else {
-					//FETCH AGAIN AFTER A DELAY IF THE PHOTO WAS ON THE BLACKLIST
 					await new Promise((r) => setTimeout(r, RETRY_DELAY));
 				}
 			} catch (e) {
@@ -291,7 +402,6 @@
 			}
 		}
 		if (!success) {
-			// IF ONLY BLACKLISTED PHOTOS ARE FOUND AFTER MANY ATTEMPTS DISPLAY A MESSAGE
 			error = 'Please try again. Refresh your browser!';
 		}
 	});
@@ -303,7 +413,7 @@
 {:else if photo}
 	<PhotoCard {photo} {onDownload} />
 {:else}
-	<p>Loading...</p>
+	<p class="searching-for-inspiration">Searching for inspiration...</p>
 {/if}
 
 <p class="click-below-message">
@@ -361,6 +471,10 @@
 		}
 	}
 
+	.searching-for-inspiration {
+		font-family: 'Futura', sans-serif !important;
+	}
+
 	h1 {
 		font-family: 'Futura', sans-serif;
 		text-align: center;
@@ -373,8 +487,10 @@
 		font-size: 8px;
 	}
 
-	.click-below-message {
-		margin-top: -30px;
+	.click-below-message,
+	.click-below-message-longer {
+		margin-top: 30px;
+		padding: 0;
 	}
 	@media (max-width: 525px) {
 		.click-below-message {
