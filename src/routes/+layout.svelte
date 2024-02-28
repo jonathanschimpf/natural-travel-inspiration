@@ -7,12 +7,12 @@
 <slot />
 
 <style>
-	:global(.download-button, textarea, select, button, input:focus) {
-		outline: 0.5px solid rgb(69, 69, 69);
+	:global(.download-button, textarea, select, input:focus) {
+		outline: 0.5px solid #3a3a3a;
 	}
 
 	:global(.pico-form input[type='search']) {
-		outline: 0.5px solid rgb(0, 0, 0);
+		outline: 0.5px solid #3a3a3a;
 	}
 
 	:global(body, html) {

@@ -274,7 +274,121 @@
 		'ipH70OUZDrk',
 		'1awcLzy32Dg',
 		'FAn-NWH8Bzw',
-		'd6kSvT2xZQo'
+		'd6kSvT2xZQo',
+		'DuiPYwz3CBA',
+		'gd3t5Dtbwkw',
+		'JoH60FhTp50',
+		'SvdVrpLiocU',
+		'gMqBIvJfP0E',
+		'htNpsGOMQL8',
+		'2WBVLTKNo1k',
+		'hom1seYgTQQ',
+		'cfKC0UOZHJo',
+		'eGD69I3ODC4',
+		'02a4DSekRVg',
+		'G_1V58E0TyM',
+		'5P91SF0zNsI',
+		'NrN5Rvl89Lo',
+		'cOMpDHi3fsM',
+		'8jQFXXSTvbw',
+		'tSZZ2NBj1eE',
+		'-rSka4Bw-EU',
+		'TsMXK2W9hV0',
+		'J4aLKW3T0FE',
+		'ntA_kfsJQjw',
+		'REKXJ7JhwiI',
+		'SqBK8g4g_ug',
+		'zAQoZwidDbs',
+		'Jzery_MafWQ',
+		'H8vhhepiiaU',
+		'A0P3qTZcjJw',
+		'RaEFRWLy9ME',
+		'KT3WlrL_bsg',
+		'RtTxZBbJe6A',
+		'baTtO8UODDo',
+		'3MNzGlQM7qs',
+		'yrBbY1ljUYc',
+		'zqIOvV-D3JQ',
+		'IbLZjKcelpM',
+		'RsRpw1rvkJs',
+		'sTVYoJHXKv8',
+		'hji142JdgRw',
+		'iiLQN9P6Irc',
+		'ZRdSZeVKBaE',
+		'Ceuh97A6OYM',
+		'HG5QX-GXV5A',
+		'DD1fSz2HF1s',
+		'AHWrFYvRBuk',
+		'8Ogfqvw15Rg',
+		'8bsvwFWVcvE',
+		'VS1uBhwf8a4',
+		'tNDvFkxkBHo',
+		'ofuctQNpnk4',
+		'C7jBZEGciCU',
+		'6YmzwamGzCg',
+		'Sl1GrFYrQ1E',
+		'IfTKequW2Mk',
+		'ln5drpv_ImI',
+		'JjYhagSxnOU',
+		'KMn4VEeEPR8',
+		'jeIRRRu6dbE',
+		'L_uyuJzJAxc',
+		'qb14VmiCjBA',
+		'uOtPQtKI_A8',
+		'HDd-NQ_AMNQ',
+		'cbPh8sfpP70',
+		'50HS3AzJsvQ',
+		'iuqmGmst5Po',
+		'jp0Qlyv389g',
+		'1rQs3661lq4',
+		'lsoogGC_5dg',
+		'VyqvPLMSZrc',
+		'kGSapVfg8Kw',
+		'C6gxT-N56ns',
+		'eCqA-col90Q',
+		'4igCpD-Lnfg',
+		'1sim8ojvCbE',
+		'8H5kNkYmJYQ',
+		'4r_tHA3gsUY',
+		'Kl8S7XbWbzM',
+		'_3DI_vx2ygg',
+		'mBQIfKlvowM',
+		'b_wN4QemTzU',
+		'BXasVMRGsuo',
+		'odxB5oIG_iA',
+		'pBgnT4KH8d4',
+		's7fVceSaiiw',
+		'EwKXn5CapA4',
+		'BvijLrkWcHA',
+		'KHrwWI5rdo8',
+		'S_IV6KqGeso',
+		'PmPZkRQYTyI',
+		'zhqD0tw1peA',
+		'jUCQRQeRs3k',
+		'dGmUuyZo_c4',
+		'qWJcROZIeec',
+		'2tvkoVK8prc',
+		'pRRSpbCFUOM',
+		'TkBhnAUm74M',
+		'VV2_XVEjg5w',
+		'oWRVjFQIwAY',
+		'3nQ1BT_rC3U',
+		'm6FGop1tliQ',
+		'upldea-3F4w',
+		'bIybKPVJW8M',
+		'2cwEJy-0hfw',
+		'lX9NstRMiDU',
+		'741MfdrVr_I',
+		'cf2QWjRd4IE',
+		'y1qOT82fd8k',
+		'D9gWibH5_kY',
+		'Eek6SLvyNYU',
+		'lsDJyu_uJhw',
+		'uCqu7KVacG8',
+		'W-CuqaebiNY',
+		'PT4xBct05I0',
+		'rVbl6qgDPa8',
+		'jp0Qlyv389g'
 	]);
 	// HOLDS THE CURRENT PHOTO OBJECT
 	let photo;
@@ -289,7 +403,7 @@
 		// TRIM THE QUERY AND CHECK FOR SPACES (INDICATING A PHRASE SEARCH?)
 		const trimmedQuery = query.trim();
 		const isPhraseSearch = trimmedQuery.includes(' ');
-		// ENCLOSE ENTIRE QUERY IN QUOTATIONS TO 
+		// ENCLOSE ENTIRE QUERY IN QUOTATIONS TO
 		// HOPEFULLY ALLOW IT TO BE TREATED AS A PHRASE?
 		const encodedQuery = isPhraseSearch
 			? encodeURIComponent(`"${trimmedQuery}"`)
@@ -297,8 +411,6 @@
 
 		// URL CONSTRUCT FOR API REQUEST
 		const url = `https://api.unsplash.com/photos/random?client_id=${accessKey}&query=${encodedQuery}`;
-
-		
 
 		try {
 			const response = await fetch(url);
@@ -444,19 +556,8 @@
 
 <!-- HTML + DYNAMIC CONTENT COMPONENT + PICO.CSS LIGHTWEIGHT FRAMEWORK (INSTEAD OF BOOTSTRAP ALWAYS) -->
 <h1>Natural Travel Inspiration ⛰️</h1>
-{#if error}
-	<p>{error}</p>
-{:else if photo}
-	<PhotoCard {photo} {onDownload} />
-{:else}
-	<p class="searching-for-inspiration">Searching for inspiration...</p>
-{/if}
 
-<p class="click-below-message">
-	More <span class="smaller-down-arrow"> ⬇ </span>
-</p>
-
-<button on:click={getUniquePhoto}>Random Natural Inspiration</button>
+<button class="random-natural-button" on:click={getUniquePhoto}>Random Natural Inspiration</button>
 
 <p class="click-below-message-longer">
 	<span class="smaller-down-arrow"> ⬇ </span>Search For A More Specific Random Image Below
@@ -467,8 +568,195 @@
 	<button type="submit">Search</button>
 </form>
 
+<div class="image-container-on-page">
+	{#if error}
+		<p>{error}</p>
+	{:else}
+		<PhotoCard {photo} {onDownload} />
+		<!-- <div class="placeholder">
+			<img src="assets/fetching-image-element-placeholder.png" alt="Placeholder" />
+		</div> -->
+		{#if !photo}
+			<p class="searching-for-inspiration">🔍 Searching for inspiration...</p>
+		{/if}
+	{/if}
+</div>
+
+
+
+
 <style>
-	/* FIRST THINGS FIRST: Mobile Media Query's */
+	/* .placeholder {
+		display: block;
+		z-index: 1;
+	} */
+	.image-container-on-page {
+		position: relative;
+	}
+
+	.searching-for-inspiration {
+		font-family: 'Futura', sans-serif;
+		font-weight: bolder;
+		color: #777777;
+		transition: color 0.1s ease-in-out;
+		z-index: 2;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-top: -25em;
+	}
+
+	.random-natural-button {
+		width: 225px;
+	}
+
+	h1 {
+		font-family: 'Futura', sans-serif;
+		text-align: center;
+		color: #3a3a3a;
+		font-weight: 900 !important;
+		margin-bottom: 5px !important;
+	}
+
+	.smaller-down-arrow {
+		font-size: 8px;
+	}
+
+	.click-below-message-longer {
+		margin-top: 25px;
+		margin-bottom: 0;
+		padding: 0;
+	}
+
+	p {
+		padding-top: 1em;
+		font-family: 'Futura', sans-serif;
+		text-align: center;
+		color: #3a3a3a;
+		font-size: 12px;
+	}
+
+	button {
+		max-width: 300px;
+		width: 100%;
+		margin: 0.15rem auto;
+		margin-top: 20px;
+		margin-bottom: 10px;
+		display: flex; /* FLEX TO CENTER SEARCH BUTTON TEXT  */
+		align-items: center; /* BUTTON TEXT CENTERED VERTICALLY */
+		justify-content: center; /* BUTTON TEXT CENTERED HORIZONTALLY */
+		padding: 0.5em 1em;
+		background-color: #3a3a3a;
+		color: #fff;
+		border: 2px solid transparent;
+		border-radius: 10px;
+		font-size: 1rem;
+		cursor: pointer;
+		font-size: 14px;
+	}
+
+	button:hover {
+		background-color: rgb(209, 209, 209);
+		color: #3a3a3a;
+		border-color: #3a3a3a;
+	}
+
+	.pico-form {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 0.25rem;
+		margin: 0.25em auto;
+		max-width: 500px;
+		font-size: 14px;
+		padding-bottom: 1em;
+	}
+
+	.pico-form input[type='search'],
+	.pico-form button {
+		flex: 1;
+		height: 50px;
+		box-sizing: border-box;
+		margin: 0;
+		padding: 1em 1em;
+		border-radius: 10px;
+		outline: none;
+		border: 2px solid #3a3a3a;
+		font-size: 14px;
+	}
+
+	.pico-form input[type='search'] {
+		background-image: none;
+		margin-right: 0.5rem;
+		background-color: #535353;
+		font-size: 14px;
+	}
+
+	.pico-form button {
+		margin-left: 0.5rem;
+	}
+
+	.pico-form input[type='search']:focus,
+	.pico-form button:focus {
+		border-color: rgb(65, 65, 65);
+		font-size: 14px;
+	}
+
+	.pico-form input[type='search']:invalid {
+		border: 2px solid #3a3a3a !important;
+		outline: 2px solid #3a3a3a !important;
+		border-color: rgb(65, 65, 65);
+		box-shadow: none;
+		font-size: 14px;
+	}
+
+	input:-webkit-autofill,
+	input:-webkit-autofill:hover,
+	input:-webkit-autofill:focus,
+	input:-webkit-autofill:active {
+		border: 2px solid #3a3a3a !important;
+		outline: 2px solid #3a3a3a !important;
+		-webkit-box-shadow: 0 0 0 90px rgb(84, 84, 84) inset !important;
+		font-weight: normal !important;
+	}
+
+	input:-webkit-autofill {
+		border: 2px solid #3a3a3a !important;
+		outline: 2px solid #3a3a3a !important;
+		transition: background-color 5000s ease-in-out 0s;
+		font-weight: normal !important;
+	}
+
+
+	/* RESET HOVER STYLES FOR
+	 MOBILE DEVICES BECAUSE REASONS */
+	 @media (hover: none) {
+		button:hover {
+			background-color: #3a3a3a;
+			color: #fff;
+			border-color: transparent;
+		}
+
+		button:active {
+			background-color: rgb(209, 209, 209);
+			color: #3a3a3a;
+			border-color: #3a3a3a;
+		}
+	}
+
+	/*  Mobile Media Query's */
+
+	@media (max-width: 525px) {
+		.smaller-down-arrow {
+			font-size: 8px;
+		}
+	}
+
+	@media (max-width: 525px) {
+		.click-below-message-longer {
+			font-size: 11px;
+		}
+	}
 
 	@media (max-width: 500px) {
 		h1 {
@@ -495,171 +783,15 @@
 	}
 
 	@media (max-width: 425px) {
-		button {
+		.random-natural-button {
 			max-width: 250px !important;
 		}
 	}
 
 	@media (max-width: 325px) {
-		button {
+		.random-natural-button {
 			max-width: 200px !important;
 			font-size: 12px !important;
 		}
-	}
-
-	.searching-for-inspiration {
-		font-family: 'Futura', sans-serif !important;
-		font-weight: bolder !important;
-	}
-
-	h1 {
-		font-family: 'Futura', sans-serif;
-		text-align: center;
-		color: rgb(33, 33, 33);
-		font-weight: 900 !important;
-		margin-bottom: 10px !important;
-	}
-
-	.smaller-down-arrow {
-		font-size: 8px;
-	}
-
-	.click-below-message,
-	.click-below-message-longer {
-		margin-top: 25px;
-		margin-bottom: 0;
-		padding: 0;
-	}
-	@media (max-width: 525px) {
-		.click-below-message {
-			font-size: 10px;
-		}
-	}
-
-	@media (max-width: 525px) {
-		.smaller-down-arrow {
-			font-size: 8px;
-		}
-	}
-
-	@media (max-width: 525px) {
-		.click-below-message-longer {
-			font-size: 11px;
-		}
-	}
-
-	p {
-		padding-top: 1em;
-		font-family: 'Futura', sans-serif;
-		text-align: center;
-		color: rgb(33, 33, 33);
-		font-size: 12px;
-	}
-
-	button {
-		max-width: 300px;
-		width: 100%;
-		margin: 0.15rem auto;
-		display: flex; /* FLEX TO CENTER SEARCH BUTTON TEXT  */
-		align-items: center; /* BUTTON TEXT CENTERED VERTICALLY */
-		justify-content: center; /* BUTTON TEXT CENTERED HORIZONTALLY */
-		padding: 0.5em 1em;
-		background-color: #000000;
-		color: #fff;
-		border: 2px solid transparent;
-		border-radius: 4px;
-		font-size: 1rem;
-		cursor: pointer;
-		font-size: 14px;
-	}
-
-	button:hover {
-		background-color: rgb(209, 209, 209);
-		color: #000000;
-		border-color: #000000;
-	}
-
-	/* RESET HOVER STYLES FOR
-	 MOBILE DEVICES BECAUSE REASONS */
-	@media (hover: none) {
-		button:hover {
-			background-color: #000000;
-			color: #fff;
-			border-color: transparent;
-		}
-
-		button:active {
-			background-color: rgb(209, 209, 209);
-			color: #000000;
-			border-color: #000000;
-		}
-	}
-
-	.pico-form {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		gap: 0.25rem;
-		margin:0.25em auto;
-		max-width: 500px;
-		font-size: 14px;
-		padding-bottom: 5em;
-	}
-
-	.pico-form input[type='search'],
-	.pico-form button {
-		flex: 1;
-		height: 50px;
-		box-sizing: border-box;
-		margin: 0;
-		padding: 1em 1em;
-		border-radius: 4px;
-		border: 1px solid #202020;
-		outline: none;
-		border: 2px solid #000;
-		font-size: 14px;
-	}
-
-	.pico-form input[type='search'] {
-		background-image: none;
-		margin-right: 0.5rem;
-		background-color: #535353;
-		font-size: 14px;
-	}
-
-	.pico-form button {
-		margin-left: 0.5rem;
-	}
-
-	.pico-form input[type='search']:focus,
-	.pico-form button:focus {
-		border-color: rgb(65, 65, 65);
-		outline: 2px solid #000;
-		font-size: 14px;
-	}
-
-	.pico-form input[type='search']:invalid {
-		border: 2px solid #000 !important;
-		outline: 2px solid #000 !important;
-		border-color: rgb(65, 65, 65);
-		box-shadow: none;
-		font-size: 14px;
-	}
-
-	input:-webkit-autofill,
-	input:-webkit-autofill:hover,
-	input:-webkit-autofill:focus,
-	input:-webkit-autofill:active {
-		border: 2px solid #000 !important;
-		outline: 2px solid #000 !important;
-		-webkit-box-shadow: 0 0 0 90px rgb(84, 84, 84) inset !important;
-		font-weight: normal !important;
-	}
-
-	input:-webkit-autofill {
-		border: 2px solid #000 !important;
-		outline: 2px solid #000 !important;
-		transition: background-color 5000s ease-in-out 0s;
-		font-weight: normal !important;
 	}
 </style>

@@ -1,5 +1,6 @@
 <script>
 	import { base } from '$app/paths';
+	import { fade } from 'svelte/transition';
 </script>
 
 <div class="about-container">
@@ -8,6 +9,7 @@
 			src={`${base}/assets/south_kaibab_day-hike.png`}
 			class="about-south_kaibab_image"
 			alt="South Kaibab Day Hike"
+			in:fade={{ delay: 0, duration: 750 }}
 		/>
 		<p class="giving-yourself-credit">
 			South Kaibab Trail @ Grand Canyon National Park. Arizona, USA. Photo by
@@ -39,8 +41,7 @@
 		>
 		API that were created by photographers from all over the world that contribute their images to that
 		platform. Each random image presented credits them below it if you're curious. If you would prefer
-		to be slightly more specific about a random image you can hit the form below the 'Random Natural
-		Inspiration' button to search. No guarantees! This simple web project was the first time that I have
+		to be slightly more specific about a random image you can hit the form at the bottom to search. No guarantees! This simple web project was the first time that I have
 		built anything using
 		<a
 			class="svelte-link"
@@ -49,7 +50,7 @@
 			target="_blank"
 			aria-label="SvelteKit">SvelteKit</a
 		>
-		 (a powerful and flexible framework for building web applications) and I don't believe it will be the last. I really enjoy it.You can check out the GitHub repository
+		 (a powerful and flexible framework for building web applications) and I don't believe it will be the last. I really enjoy it. You can check out the GitHub repository
 		<a
 			class="natural-travel-repository"
 			href="https://github.com/jonathanschimpf/natural-travel-inspiration"

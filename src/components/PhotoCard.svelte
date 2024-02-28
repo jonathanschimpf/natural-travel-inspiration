@@ -1,3 +1,4 @@
+
 <script>
 	export let photo;
 	export let onDownload;
@@ -75,6 +76,7 @@
 		position: relative;
 		border-radius: 2%;
 		overflow: hidden;
+		
 	}
 
 	.image-container {
@@ -119,7 +121,7 @@
 	}
 
 	.location {
-		color: black;
+		color: #3a3a3a;
 		font-size: 15px;
 		margin: 0;
 		margin-top: 20px;
@@ -150,7 +152,7 @@
 		text-align: center;
 		justify-content: center;
 		background-color: rgb(209, 209, 209);
-		border-radius: 2px !important;
+		border-radius: 10px;
 		font-size: 7px;
 		color: rgb(135, 135, 135);
 		border: none;
