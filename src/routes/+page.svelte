@@ -560,7 +560,8 @@
 <button class="random-natural-button" on:click={getUniquePhoto}>Random Natural Inspiration</button>
 
 <p class="click-below-message-longer">
-	<span class="smaller-down-arrow"> ⬇ </span>Search For A More Specific Random Image Below
+	<span class="smaller-down-arrow"> ⬇ </span>Search For A More Specific Random Image Below<br/>
+	Single Word Searches Work Best With This API — You Could Always "Google" It.
 </p>
 
 <form on:submit|preventDefault={handleSearch} class="pico-form">
