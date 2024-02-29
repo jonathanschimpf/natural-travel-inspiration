@@ -13,6 +13,8 @@
 
 We all live in cities or suburbs and we work from businesses, offices or work from home. Having manmade structures be the main setting where many of us spend most of our time, we should take the time to explore. Given the beauty of nature and the shortness of our lifetimes, we should enjoy it while we can. I've lived and worked in and around a city for a long time, but in the evenings or on weekends I have always sought out opportunities to get out and enjoy what was here before I was born. Many of my travels have revolved around it. So I made this web project as a way to inspire myself and others. It pulls random images from the Unsplash© API that were created by photographers from all over the world that contribute their images to that platform. Each random image presented credits them below it if you're curious. If you would prefer to be slightly more specific about a random image you can hit the form at the bottom to search. No guarantees! This simple web project was the first time that I have built anything using SvelteKit and I don't believe it will be the last. I really enjoy it.
 
+`Natural Travel Inspiration` => [natural-travel-inspiration.netlify.app](https://natural-travel-inspiration.netlify.app)
+
 <p>&nbsp;<p>
 
 ------
