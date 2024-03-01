@@ -1,8 +1,8 @@
-
 <script>
+	import { fade } from 'svelte/transition';
 	export let photo;
 	export let onDownload;
-	let loaded = false; // Tracks if the photo is loaded
+	let loaded = false; // TRACKS IF THE PHOTO IS LOADED
 
 	const utmSource = 'Natural Travel Inspiration';
 	const utmMedium = 'referral';
@@ -26,42 +26,78 @@
 	$: if (photo && photo.urls && photo.urls.regular) {
 		loaded = true;
 	}
+	// REMOVING OUTLINE ON THE DOWNLOAD BUTTON
+
+	let buttonElement;
+
+	// FUNCTION TO REMOVE FOCUS FROM BUTTON
+	// IMMEDIATELY AFTER CLICK/PRESS
+	function removeFocus() {
+		if (buttonElement) {
+			buttonElement.blur();
+		}
+	}
+
+	let key = 0;
+
+	// WHEN THE PHOTO OBJECT CHANGES, CHECK IF IT IS LOADED
+	// ..AND UPDATE THE KEY — TO TRIGGER THE FADE-IN.TRANSITION
+	$: if (photo && photo.urls && photo.urls.regular) {
+		loaded = true;
+		key = photo.id; // THIS CAN BE ANY UNIQUE VALUE THAT CHANGES WITH EACH PHOTO
+	}
 </script>
 
 <div class="photo-card {loaded ? 'loaded' : ''}">
 	<div class="image-container">
 		{#if photo && photo.urls && photo.urls.regular}
-			<img src={photo.urls.regular} alt={photo.alt_description || 'Unsplash Photo'} />
+			{#each [photo] as { id, urls, alt_description, user } (key)}
+				<!-- Keyed each block -->
+				<div class="photo-card {loaded ? 'loaded' : ''}">
+					<div class="image-container">
+						<img
+							in:fade={{ delay:500, duration: 500 }}
+							src={urls.regular}
+							alt={alt_description || 'Unsplash Photo'}
+						/>
+					</div>
+					<div class="photo-information">
+						{#if photo.location && photo.location.name}
+							<p class="location">{photo.location.name}</p>
+						{/if}
+						<div class="caption">
+							<span class="credit-photo-by">Photo by </span>
+							<a
+								class="credit-links"
+								href={createAttributionLink(user.links.html)}
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								{user.name}
+							</a>
+							<span class="credit-on"> on </span>
+							<a
+								class="credit-links"
+								href={createAttributionLink('https://unsplash.com')}
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								Unsplash
+							</a>
+						</div>
+					</div>
+					<button
+						class="download-button"
+						on:click={triggerDownload}
+						bind:this={buttonElement}
+						on:mouseup={removeFocus}
+					>
+						Download
+					</button>
+				</div>
+			{/each}
 		{/if}
 	</div>
-	{#if photo}
-		<div class="photo-information">
-			{#if photo.location && photo.location.name}
-				<p class="location">{photo.location.name}</p>
-			{/if}
-			<div class="caption">
-				<span class="credit-photo-by">Photo by </span>
-				<a
-					class="credit-links"
-					href={createAttributionLink(photo.user.links.html)}
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					{photo.user.name}
-				</a>
-				<span class="credit-on"> on </span>
-				<a
-					class="credit-links"
-					href={createAttributionLink('https://unsplash.com')}
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Unsplash
-				</a>
-			</div>
-		</div>
-		<button class="download-button" on:click={triggerDownload}>Download</button>
-	{/if}
 </div>
 
 <style>
@@ -71,28 +107,25 @@
 		align-items: center;
 		max-width: 95vw;
 		margin: auto;
-		margin-bottom: -20px;
 		text-align: center;
 		position: relative;
 		border-radius: 2%;
 		overflow: hidden;
-		
 	}
 
 	.image-container {
 		position: relative;
-		min-height: 500px;
+		min-height: 600px;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		width: 100%;
 		background-size: cover;
 		background-position: center;
 		background-repeat: no-repeat;
 	}
 
 	.image-container img {
-		max-height: 460px;
+		max-height: 600px;
 		object-fit: cover;
 		border-radius: 25px;
 		position: relative;
@@ -165,11 +198,12 @@
 	}
 
 	.download-button:focus {
-		outline: 1px solid rgb(135, 135, 135);
+		outline: 2px solid whitesmoke;
 	}
 
 	.download-button:hover {
 		background-color: #e2e2e291;
+		border-color: #3a3a3a;
 	}
 
 	/* RESET HOVER STYLES FOR
