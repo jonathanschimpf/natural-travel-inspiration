@@ -1,4 +1,5 @@
 <script>
+	import { fade } from 'svelte/transition';
 	import { onMount } from 'svelte';
 	import PhotoCard from '../components/PhotoCard.svelte';
 	import { writable } from 'svelte/store';
@@ -172,12 +173,14 @@ let buttonElement;
 </script>
 
 <!-- HTML + DYNAMIC CONTENT COMPONENT + PICO.CSS LIGHTWEIGHT FRAMEWORK (INSTEAD OF BOOTSTRAP ALWAYS) -->
-<h1>Natural Travel Inspiration ⛰️</h1>
+<h1 in:fade={{ delay: 100, duration: 1000 }}>Natural Travel Inspiration ⛰️</h1>
 
 <button class="random-natural-button" 
 on:click={getUniquePhoto} 
 bind:this={buttonElement}
-on:mouseup={removeFocus}>+Random Natural Inspiration</button>
+on:mouseup={removeFocus}
+in:fade={{ delay: 100, duration: 1000 }}
+>+Random Natural Inspiration</button>
 
 <div class="image-container-on-page">
 	{#if error}
@@ -185,7 +188,7 @@ on:mouseup={removeFocus}>+Random Natural Inspiration</button>
 	{:else}
 		<PhotoCard {photo} {onDownload} />
 		{#if !photo}
-			<p class="searching-for-inspiration">🔍 Searching for inspiration...</p>
+			<p class="searching-for-inspiration">🔍 Searching For Inspiration...</p>
 		{/if}
 	{/if}
 </div>

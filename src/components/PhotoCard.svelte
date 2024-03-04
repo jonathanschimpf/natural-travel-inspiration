@@ -48,7 +48,10 @@
 	}
 </script>
 
-<div class="photo-card {loaded ? 'loaded' : ''}">
+<div
+	class="photo-card {loaded ? 'loaded' : ''}"
+	in:fade={{ delay: 500, duration: 500 }}
+>
 	<div class="image-container">
 		{#if photo && photo.urls && photo.urls.regular}
 			{#each [photo] as { id, urls, alt_description, user } (key)}
@@ -56,12 +59,15 @@
 				<div class="photo-card {loaded ? 'loaded' : ''}">
 					<div class="image-container">
 						<img
-							in:fade={{ delay:500, duration: 500 }}
+							in:fade={{ delay: 250, duration: 500 }}
 							src={urls.regular}
 							alt={alt_description || 'Unsplash Photo'}
 						/>
 					</div>
-					<div class="photo-information">
+					<div
+						class="photo-information"
+						in:fade={{ delay: 500, duration: 500 }}
+					>
 						{#if photo.location && photo.location.name}
 							<p class="location">{photo.location.name}</p>
 						{/if}
@@ -91,6 +97,7 @@
 						on:click={triggerDownload}
 						bind:this={buttonElement}
 						on:mouseup={removeFocus}
+						in:fade={{ delay: 500, duration: 500 }}
 					>
 						Download
 					</button>
@@ -185,14 +192,15 @@
 		text-align: center;
 		justify-content: center;
 		background-color: rgb(209, 209, 209);
-		border-radius: 10px;
+		border-radius: 5px;
 		font-size: 7px;
-		color: rgb(135, 135, 135);
+		color: rgb(129, 129, 129);
 		border: none;
-		padding: 0.5em 1em;
+		padding: 0.1em 0.1em;
+		padding-top: 0.3em;
 		cursor: pointer;
 		max-width: 40px;
-		height: 12px;
+		height: 16px;
 		width: 100%;
 		outline: 1px solid rgb(180, 180, 180);
 	}

@@ -37,15 +37,15 @@
     list-style-type: none;
     padding-left: 0;
     display: flex;
-    gap: 2rem; /* This sets a space between the menu items */
-    margin: 0; /* Remove default margin */
+    gap: 1rem; /* SPACE BETWEEN MENU ITEMS */
+    margin: 0; 
   }
   .menu li a {
-    text-decoration: none; /* Removes underline from links */
-    color: var(--text-color, black); /* Sets the text color, with a fallback */
-    font-weight: var(--text-weight, normal); /* Sets the font weight, with a fallback */
-    position: relative; /* Position relative to allow absolute positioning of pseudo-elements */
-    padding-bottom: 0.1rem; /* Provide space for the underline */
+    text-decoration: none; 
+    color: #3A3A3A; 
+    font-weight: var(--text-weight, normal); 
+    position: relative; 
+    padding-bottom: 0.1rem; /* UNDERLINE BREATHING ROOM */
     display: inline-block;
     font-size: 18px;
   }
@@ -60,16 +60,16 @@
   .menu li.active a::after {
     content: '';
     display: block;
-    margin: auto; /* Center the pseudo-element */
-    height: 3.25px; /* Thickness of your underline */
-    width: 100%; /* Full width of the text */
-    background-color:rgb(12, 161, 254);  /* Color of your underline */
+    margin: auto; /* PSEUDO-ELEMENT CENTERED */
+    height: 3.25px; /* UNDERLINE THICKNESS*/
+    width: 100%; /* TEXT FULL WIDTH*/
+    background-color:rgb(12, 161, 254);  /* UNDERLINE COLOR*/
   }
 
   .menu li a:focus {
-  background-color: transparent; /* Ensure no background color is applied */
-  outline: none; /* Removes the default outline */
-  box-shadow: none; /* Ensures no shadow is applied */
+  background-color: transparent; 
+  outline: none; 
+  box-shadow: none; 
 }
 
 .menu li a:hover {

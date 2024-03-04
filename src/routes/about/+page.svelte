@@ -3,13 +3,14 @@
 	import { fade } from 'svelte/transition';
 </script>
 
-<div class="about-container">
+<div class="about-container"
+in:fade={{ delay: 100, duration: 500 }}>
 	<div class="image-and-self-credit-container">
 		<img
 			src={`${base}/assets/south_kaibab_day-hike.png`}
 			class="about-south_kaibab_image"
 			alt="South Kaibab Day Hike"
-			in:fade={{ delay: 200, duration: 750 }}
+			in:fade={{ delay: 100, duration: 500 }}
 		/>
 		<p class="giving-yourself-credit">
 			South Kaibab Trail @ Grand Canyon National Park. Arizona, USA. Photo by
@@ -23,7 +24,8 @@
 		</p>
 	</div>
 
-	<p class="about-writeup">
+	<p class="about-writeup"
+	in:fade={{ delay: 100, duration: 500 }}>
 		<span class="natural-span">Natural Travel Inspiration</span> — We all live in cities or suburbs
 		and we work from businesses, offices or work from home. Having manmade structures be the main
 		setting where many of us spend most of our time, we should take the time to explore. Given the

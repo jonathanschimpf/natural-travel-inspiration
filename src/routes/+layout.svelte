@@ -14,9 +14,7 @@
 	:global(.pico-form input[type='search']) {
 		outline: 0.5px solid #3a3a3a;
 	}
-	:global(button:focus) {
-		outline: 2px solid whitesmoke;
-	}
+	
 	:global(.pico-form:focus) {
 		outline: 2px solid whitesmoke !important;
 	}
