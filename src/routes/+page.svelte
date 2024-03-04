@@ -157,39 +157,40 @@
 			error = 'Please try again. Refresh your browser!';
 		}
 	});
-// REMOVING OUTLINE ON THE '+Random Natural Inspiration' BUTTON
+	// REMOVING OUTLINE ON THE '+Random Natural Inspiration' BUTTON
 
-let buttonElement;
+	let buttonElement;
 
-
- // FUNCTION TO REMOVE FOCUS FROM BUTTON 
- // IMMEDIATELY AFTER CLICK/PRESS
- function removeFocus() {
-    if (buttonElement) {
-      buttonElement.blur();
-    }
-  }
-
+	// FUNCTION TO REMOVE FOCUS FROM BUTTON
+	// IMMEDIATELY AFTER CLICK/PRESS
+	function removeFocus() {
+		if (buttonElement) {
+			buttonElement.blur();
+		}
+	}
 </script>
 
 <!-- HTML + DYNAMIC CONTENT COMPONENT + PICO.CSS LIGHTWEIGHT FRAMEWORK (INSTEAD OF BOOTSTRAP ALWAYS) -->
 <h1 in:fade={{ delay: 100, duration: 1000 }}>Natural Travel Inspiration ⛰️</h1>
 
-<button class="random-natural-button" 
-on:click={getUniquePhoto} 
-bind:this={buttonElement}
-on:mouseup={removeFocus}
-in:fade={{ delay: 100, duration: 1000 }}
->+Random Natural Inspiration</button>
+<button
+	class="random-natural-button"
+	on:click={getUniquePhoto}
+	bind:this={buttonElement}
+	on:mouseup={removeFocus}
+	in:fade={{ delay: 100, duration: 1000 }}>+Random Natural Inspiration</button
+>
 
 <div class="image-container-on-page">
 	{#if error}
 		<p>{error}</p>
 	{:else}
-		<PhotoCard {photo} {onDownload} />
-		{#if !photo}
+		{#key photo}
+			<PhotoCard {photo} {onDownload} />
+		{/key}
+	{#if !photo}
 			<p class="searching-for-inspiration">🔍 Searching For Inspiration...</p>
-		{/if}
+	{/if}
 	{/if}
 </div>
 
