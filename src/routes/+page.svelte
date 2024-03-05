@@ -2,15 +2,13 @@
 	import { fade } from 'svelte/transition';
 	import { onMount } from 'svelte';
 	import PhotoCard from '../components/PhotoCard.svelte';
-	import { writable } from 'svelte/store';
 
 	// EXTERNAL BLACKLISTED ID'S STORED IN THE JS MODULE FILE PATH BELOW
 	import { blacklist } from '../components/Blacklisted-IDs.js';
 
 	// PUBLIC ACCESS KEY FROM THE Unsplash COMPANY AND KEPT PRIVATE IN ENVIRONMENT VARIABLES
 	const accessKey = import.meta.env.VITE_UNSPLASH_ACCESS_KEY;
-	// THIS STORE MAINTAINS A SET OF PHOTO IDs THAT HAVE BEEN SEEN BY THE IP
-	const seenPhotos = writable(new Set());
+
 
 	// HOLDS THE CURRENT PHOTO OBJECT
 	let photo;
@@ -18,7 +16,7 @@
 	let error = '';
 
 	// FETCHES A RANDOM PHOTO FROM THE Unsplash API
-	// BASED ON the getRandomKeyword FUNCTION BELOW ON LINE 123
+	// BASED ON the getRandomKeyword FUNCTION BELOW ON LINE 125
 	async function fetchPhoto(query) {
 		// TRIM THE QUERY AND CHECK FOR SPACES (INDICATING A PHRASE SEARCH?)
 		const trimmedQuery = query.trim();
@@ -38,6 +36,11 @@
 				throw new Error('Error fetching photo.');
 			}
 			const newPhoto = await response.json();
+
+			if (blacklist.has(newPhoto.id)) {
+				return fetchPhoto(query); // RECURSIVE CALL
+			}
+
 			return newPhoto;
 		} catch (err) {
 			error = 'Error fetching new photo.';
@@ -45,7 +48,6 @@
 			return null;
 		}
 	}
-
 	// THIS FUNCTION IS TRIGGERED WHEN THE USER CLICKS THE 'Download' BUTTON UNDER THE IMAGE ON THIS '+page.svelte'.
 	//  IT MAKES AN ADDITIONAL REQUEST TO THE Unsplash API FOR THE DOWNLOAD. IT THEN TRIGGERS THE BROWSER TO DOWNLOAD.
 	async function onDownload(photo, filename) {
@@ -86,76 +88,26 @@
 		}
 	}
 
-	const MAX_ATTEMPTS = 20; // TRY 20 TIMES TO FIND A NON-BLACKLISTED ID (PHOTO)
-	const RETRY_DELAY = 1000; // WAIT 1 SECOND BEFORE TRYING AGAIN
-
 	// THIS FUNCTION MAKES MULTIPLE ATTEMPTS TO FETCH
 	// A UNIQUE PHOTO THAT IS NOT ON THE BLACKLIST ABOVE
 	async function getUniquePhoto() {
-		let attempts = 0;
-		let found = false;
-
-		while (!found && attempts < MAX_ATTEMPTS) {
-			attempts++;
-			const randomKeyword = getRandomKeyword();
-			const potentialPhoto = await fetchPhoto(randomKeyword);
-
-			if (
-				potentialPhoto &&
-				!blacklist.has(potentialPhoto.id) &&
-				potentialPhoto.location &&
-				potentialPhoto.location.name
-			) {
-				if (!$seenPhotos.has(potentialPhoto.id)) {
-					photo = potentialPhoto;
-					$seenPhotos.add(potentialPhoto.id);
-					found = true;
-				}
-			}
-		}
-
-		if (!found) {
-			setTimeout(getUniquePhoto, RETRY_DELAY);
+		const randomKeyword = getRandomKeyword();
+		photo = await fetchPhoto(randomKeyword);
+		if (!photo) {
+			error = 'Could not fetch a new photo. Please try again.';
 		}
 	}
 
 	// RETURNS ONE OF THE RANDOM KEYWORDS BELOW FROM THE ARRAY
 	// I'VE ENTERED BELOW THAT ARE THE BACKBONE OF CONTENT FOR THIS 'Natural Travel Inspiration' PROJECT
 	function getRandomKeyword() {
-		const keywords = ['mountain', 'hike', 'vista', 'cliff', 'forest', 'river', 'natural', 'island'];
+		const keywords = ['mountain', 'hike', 'vista', 'cliff', 'forest', 'river', 'natural', 'island', 'desert',  'canyon'];
 		return keywords[Math.floor(Math.random() * keywords.length)];
 	}
 	// LIFECYCLE HOOK THAT RUNS WHEN THE COMPONENT IS INITIALLY RENDERED
-	onMount(async () => {
-		let success = false;
-		let attempts = 0;
-		while (!success && attempts < MAX_ATTEMPTS) {
-			attempts++;
-			try {
-				const initialPhoto = await fetchPhoto('nature');
-				if (
-					initialPhoto &&
-					!blacklist.has(initialPhoto.id) &&
-					initialPhoto.location &&
-					initialPhoto.location.name
-				) {
-					photo = initialPhoto;
-					seenPhotos.update((set) => {
-						set.add(initialPhoto.id);
-						return set;
-					});
-					success = true;
-				} else {
-					await new Promise((r) => setTimeout(r, RETRY_DELAY));
-				}
-			} catch (e) {
-				error = 'Whoops! Refresh your browser, please.';
-				console.error(e);
-			}
-		}
-		if (!success) {
-			error = 'Please try again. Refresh your browser!';
-		}
+
+	onMount(() => {
+		getUniquePhoto();
 	});
 	// REMOVING OUTLINE ON THE '+Random Natural Inspiration' BUTTON
 
@@ -188,9 +140,9 @@
 		{#key photo}
 			<PhotoCard {photo} {onDownload} />
 		{/key}
-	{#if !photo}
+		{#if !photo}
 			<p class="searching-for-inspiration">🔍 Searching For Inspiration...</p>
-	{/if}
+		{/if}
 	{/if}
 </div>
 
@@ -209,7 +161,7 @@
 		width: 100%;
 		margin: 0.15rem auto;
 		margin-top: 20px;
-		margin-bottom: 20px;
+		margin-bottom: 30px;
 		display: flex; /* FLEX TO CENTER SEARCH BUTTON TEXT  */
 		align-items: center; /* BUTTON TEXT CENTERED VERTICALLY */
 		justify-content: center; /* BUTTON TEXT CENTERED HORIZONTALLY */

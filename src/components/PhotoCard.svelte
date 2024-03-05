@@ -112,7 +112,7 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		max-width: 95vw;
+		max-width: 96vw;
 		margin: auto;
 		text-align: center;
 		position: relative;
