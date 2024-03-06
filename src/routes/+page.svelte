@@ -31,23 +31,25 @@
 		const url = `https://api.unsplash.com/photos/random?client_id=${accessKey}&query=${encodedQuery}`;
 
 		try {
-			const response = await fetch(url);
-			if (!response.ok) {
-				throw new Error('Error fetching photo.');
-			}
-			const newPhoto = await response.json();
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error('Error fetching photo.');
+        }
+        const newPhoto = await response.json();
 
-			if (blacklist.has(newPhoto.id)) {
-				return fetchPhoto(query); // RECURSIVE CALL
-			}
+        // CHECK IF PHOTO LACKS A LOCATION OR IS BLACKLISTED
+        if (blacklist.has(newPhoto.id) || !newPhoto.location || !newPhoto.location.name) {
+            console.log('Photo blacklisted or without location, fetching another one.');
+            return fetchPhoto(query); // RECURSIVE CALL FOR A NEW PHOTO IF NEEDED
+        }
 
-			return newPhoto;
-		} catch (err) {
-			error = 'Error fetching new photo.';
-			console.error('Fetch error:', err);
-			return null;
-		}
-	}
+        return newPhoto;
+    } catch (err) {
+        error = 'Error fetching new photo.';
+        console.error('Fetch error:', err);
+        return null;
+    }
+}
 	// THIS FUNCTION IS TRIGGERED WHEN THE USER CLICKS THE 'Download' BUTTON UNDER THE IMAGE ON THIS '+page.svelte'.
 	//  IT MAKES AN ADDITIONAL REQUEST TO THE Unsplash API FOR THE DOWNLOAD. IT THEN TRIGGERS THE BROWSER TO DOWNLOAD.
 	async function onDownload(photo, filename) {
