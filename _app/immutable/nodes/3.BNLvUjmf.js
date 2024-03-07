@@ -1,0 +1,18 @@
+import{s as P,a as L,n as S,b as v}from"../chunks/scheduler.xP9QEsb2.js";import{S as C,i as G,e as h,s as j,c as u,a as x,f as T,k as H,d as g,l as i,g as K,h as o,m as y}from"../chunks/index.B4ohFuCl.js";import{b as A}from"../chunks/paths.D4Ud2rmQ.js";import{f as _}from"../chunks/index.BQMALu5r.js";function D(M){let e,t,s,w,c,d,n,k=`South Kaibab Trail @ Grand Canyon National Park. Arizona, USA. Photo by
+			<a class="link-to-my-dev-page-tiny svelte-18nbl1b" href="https://jonathanschimpf.dev" rel="noreferrer" target="_blank" aria-label="JonathanSchimpf.dev">Jonathan Schimpf (me)</a>.`,p,r,I=`<span class="natural-span svelte-18nbl1b">Natural Travel Inspiration</span> — We all live in cities or suburbs
+		and we work from businesses, offices or work from home. Having manmade structures be the main
+		setting where many of us spend most of our time, exploring natural features is good for us all. Given the
+		beauty of nature and the shortness of our lifetimes, we should enjoy it while we can. I&#39;ve lived
+		and worked in + around a city for a long time, but in the evenings or on weekends I have
+		always sought out opportunities to get out and enjoy what was here before I was born. Many of my
+		travels have revolved around it. So I made this web project as a way to inspire myself and
+		others. It pulls random images from the
+		<a class="unsplash-link svelte-18nbl1b" href="https://www.unsplash.com" rel="noreferrer" target="_blank" aria-label="Unsplash Link">Unsplash<span class="copyright-span svelte-18nbl1b">©</span></a>
+		API that were created by photographers from all over the world that contribute their images to that
+		platform. Each random image presented credits them below it if you&#39;re curious. This simple web project was the first time that I have
+		built anything using
+		<a class="svelte-link svelte-18nbl1b" href="https://kit.svelte.dev/" rel="noreferrer" target="_blank" aria-label="SvelteKit">SvelteKit</a>
+		 (a powerful and flexible framework for building web applications) and I don&#39;t believe it will be the last. I really enjoy it. You can check out the GitHub repository
+		<a class="natural-travel-repository svelte-18nbl1b" href="https://github.com/jonathanschimpf/natural-travel-inspiration" rel="noreferrer" target="_blank" aria-label="Natural Travel Inspiration Repository">here</a>.
+
+		<br/> <br/> - Jonathan Schimpf`,f,m;return{c(){e=h("div"),t=h("div"),s=h("img"),d=j(),n=h("p"),n.innerHTML=k,p=j(),r=h("p"),r.innerHTML=I,this.h()},l(a){e=u(a,"DIV",{class:!0});var l=x(e);t=u(l,"DIV",{class:!0});var b=x(t);s=u(b,"IMG",{src:!0,class:!0,alt:!0}),d=T(b),n=u(b,"P",{class:!0,"data-svelte-h":!0}),H(n)!=="svelte-3jopso"&&(n.innerHTML=k),b.forEach(g),p=T(l),r=u(l,"P",{class:!0,"data-svelte-h":!0}),H(r)!=="svelte-bx3k5r"&&(r.innerHTML=I),l.forEach(g),this.h()},h(){L(s.src,w=`${A}/assets/south_kaibab_day-hike.png`)||i(s,"src",w),i(s,"class","about-south_kaibab_image svelte-18nbl1b"),i(s,"alt","South Kaibab Day Hike"),i(n,"class","giving-yourself-credit svelte-18nbl1b"),i(t,"class","image-and-self-credit-container svelte-18nbl1b"),i(r,"class","about-writeup svelte-18nbl1b"),i(e,"class","about-container svelte-18nbl1b")},m(a,l){K(a,e,l),o(e,t),o(t,s),o(t,d),o(t,n),o(e,p),o(e,r)},p:S,i(a){a&&(c||v(()=>{c=y(s,_,{delay:100,duration:500}),c.start()})),a&&(f||v(()=>{f=y(r,_,{delay:100,duration:500}),f.start()})),a&&(m||v(()=>{m=y(e,_,{delay:100,duration:500}),m.start()}))},o:S,d(a){a&&g(e)}}}class q extends C{constructor(e){super(),G(this,e,null,D,P,{})}}export{q as component};
