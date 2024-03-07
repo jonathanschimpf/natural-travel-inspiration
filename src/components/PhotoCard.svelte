@@ -129,14 +129,17 @@
 	.image-container img {
 		max-height: 60vh;
 		width: 100%;
-		object-fit: contain; /* or cover, depending on desired effect */
-		border-radius: 25px; /* Maintain a consistent border-radius */
+		object-fit: contain;
+		border-radius: 25px !important;
 	}
 
 	@media (max-width: 1024px) {
 		.image-container img {
 			margin-top: 1vh;
 			max-height: 45vh;
+			width: 100%;
+			object-fit: contain;
+			border-radius: 25px !important;
 		}
 	}
 
