@@ -135,7 +135,7 @@
 
 	@media (max-width: 1024px) {
 		.image-container img {
-			margin-top: 100px;
+			margin-top: 1vh;
 			max-height: 45vh;
 		}
 	}

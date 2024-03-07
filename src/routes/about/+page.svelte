@@ -58,7 +58,13 @@ in:fade={{ delay: 100, duration: 500 }}>
 			rel="noreferrer"
 			target="_blank"
 			aria-label="Natural Travel Inspiration Repository">here</a
-		>.
+		>  —  continuous deployment via 
+		<a
+		class="continuous-deployment-via-netlify"
+		href="https://www.netlify.com/"
+		rel="noreferrer"
+		target="_blank"
+		aria-label="Continuous Deployment via Netlifyy">Netlify</a>.
 
 		<br /> <br /> - Jonathan Schimpf
 	</p>
@@ -106,6 +112,7 @@ in:fade={{ delay: 100, duration: 500 }}>
 		margin: 20px;
 	}
 
+	a.continuous-deployment-via-netlify,
 	a.unsplash-link,
 	a.svelte-link,
 	a.natural-travel-repository {
@@ -113,6 +120,7 @@ in:fade={{ delay: 100, duration: 500 }}>
 		color: rgb(0, 129, 34);
 	}
 
+	a.continuous-deployment-via-netlify:hover,
 	a.unsplash-link:hover,
 	a.svelte-link:hover,
 	a.natural-travel-repository:hover {
@@ -126,7 +134,7 @@ in:fade={{ delay: 100, duration: 500 }}>
 		width: 100%;
 		height: auto;
 		object-fit: cover;
-		border-radius: 2%;
+		border-radius: 5%;
 		margin-top: 1rem;
 	}
 
