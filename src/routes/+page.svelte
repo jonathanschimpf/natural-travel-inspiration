@@ -103,7 +103,7 @@
 	// RETURNS ONE OF THE RANDOM KEYWORDS BELOW FROM THE ARRAY
 	// I'VE ENTERED BELOW THAT ARE THE BACKBONE OF CONTENT FOR THIS 'Natural Travel Inspiration' PROJECT
 	function getRandomKeyword() {
-		const keywords = ['mountain', 'hike', 'vista', 'cliff', 'forest', 'river', 'natural', 'island', 'desert',  'canyon'];
+		const keywords = ['mountain', 'hike', 'vista', 'cliff', 'forest', 'rainforest', 'river', 'natural', 'island', 'desert',  'canyon', 'glacier', 'volcano', 'waterfall', 'valley', 'fjord', 'plateau', 'geyser', 'dune'];
 		return keywords[Math.floor(Math.random() * keywords.length)];
 	}
 	// LIFECYCLE HOOK THAT RUNS WHEN THE COMPONENT IS INITIALLY RENDERED
@@ -135,7 +135,6 @@
 	in:fade={{ delay: 100, duration: 1000 }}>+Random Natural Inspiration</button
 >
 
-<div class="image-container-on-page">
 	{#if error}
 		<p>{error}</p>
 	{:else}
@@ -146,7 +145,6 @@
 			<p class="searching-for-inspiration">🔍 Searching For Inspiration...</p>
 		{/if}
 	{/if}
-</div>
 
 <style>
 	/* '+Random Natural Inspiration' BUTTON STYLING */
@@ -183,16 +181,11 @@
 		border-color: #3a3a3a;
 	}
 
-	.image-container-on-page {
-		position: relative;
-	}
-
 	.searching-for-inspiration {
 		font-family: 'Futura', sans-serif;
 		font-weight: bolder;
 		color: #777777;
 		transition: color 0.1s ease-in-out;
-		z-index: 2;
 		display: flex;
 		align-items: center;
 		justify-content: center;

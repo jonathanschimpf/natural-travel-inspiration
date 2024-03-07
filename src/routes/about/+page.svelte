@@ -28,9 +28,9 @@ in:fade={{ delay: 100, duration: 500 }}>
 	in:fade={{ delay: 100, duration: 500 }}>
 		<span class="natural-span">Natural Travel Inspiration</span> — We all live in cities or suburbs
 		and we work from businesses, offices or work from home. Having manmade structures be the main
-		setting where many of us spend most of our time, we should take the time to explore. Given the
+		setting where many of us spend most of our time, exploring natural features is good for us all. Given the
 		beauty of nature and the shortness of our lifetimes, we should enjoy it while we can. I've lived
-		and worked in and around a city for a long time, but in the evenings or on weekends I have
+		and worked in + around a city for a long time, but in the evenings or on weekends I have
 		always sought out opportunities to get out and enjoy what was here before I was born. Many of my
 		travels have revolved around it. So I made this web project as a way to inspire myself and
 		others. It pulls random images from the

@@ -48,10 +48,7 @@
 	}
 </script>
 
-<div
-	class="photo-card {loaded ? 'loaded' : ''}"
-	in:fade={{ delay: 500, duration: 500 }}
->
+<div class="photo-card {loaded ? 'loaded' : ''}" in:fade={{ delay: 500, duration: 500 }}>
 	<div class="image-container">
 		{#if photo && photo.urls && photo.urls.regular}
 			{#each [photo] as { id, urls, alt_description, user } (key)}
@@ -64,10 +61,7 @@
 							alt={alt_description || 'Unsplash Photo'}
 						/>
 					</div>
-					<div
-						class="photo-information"
-						in:fade={{ delay: 500, duration: 500 }}
-					>
+					<div class="photo-information" in:fade={{ delay: 500, duration: 500 }}>
 						{#if photo.location && photo.location.name}
 							<p class="location">{photo.location.name}</p>
 						{/if}
@@ -112,31 +106,31 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		max-width: 96vw;
-		margin: auto;
 		text-align: center;
 		position: relative;
-		border-radius: 2%;
+		border-radius: 25px;
 		overflow: hidden;
+		max-width: 90vw;
+		margin: auto;
+		padding: 2vh; /* Example padding */
 	}
 
 	.image-container {
 		position: relative;
-		min-height: 600px;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		background-size: cover;
 		background-position: center;
 		background-repeat: no-repeat;
+		border-radius: inherit;
 	}
 
 	.image-container img {
-		max-height: 600px;
-		object-fit: cover;
-		border-radius: 25px;
-		position: relative;
-		z-index: 1;
+		max-height: 65vh;
+		width: 100%;
+		object-fit: contain; /* or cover, depending on desired effect */
+		border-radius: 25px; /* Maintain a consistent border-radius */
 	}
 
 	.photo-information,
@@ -164,7 +158,7 @@
 		color: #3a3a3a;
 		font-size: 15px;
 		margin: 0;
-		margin-top: 20px;
+		margin-top: 15px;
 	}
 
 	.credit-links {
