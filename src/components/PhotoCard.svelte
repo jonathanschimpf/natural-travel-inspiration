@@ -127,11 +127,11 @@
 	}
 
 	.image-container img {
-		max-height: 60vh;
-		width: 100%;
-		object-fit: contain;
-		border-radius: 25px !important;
-	}
+     max-height: 60vh;
+     width: 100%;
+     object-fit: contain;
+     border-radius: 2em;
+}
 
 	@media (max-width: 1024px) {
 		.image-container img {
