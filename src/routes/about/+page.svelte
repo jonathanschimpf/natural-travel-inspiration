@@ -134,7 +134,7 @@ in:fade={{ delay: 100, duration: 500 }}>
 		width: 100%;
 		height: auto;
 		object-fit: cover;
-		border-radius: 5%;
+		border-radius: 2em;
 		margin-top: 1rem;
 	}
 

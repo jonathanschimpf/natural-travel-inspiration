@@ -108,7 +108,7 @@
 		align-items: center;
 		text-align: center;
 		position: relative;
-		border-radius: 25px;
+		border-radius: 2em;
 		overflow: hidden;
 		max-width: 98.5vw;
 		margin: auto;
@@ -139,7 +139,7 @@
 			max-height: 45vh;
 			width: 100%;
 			object-fit: contain;
-			border-radius: 25px !important;
+			border-radius: 2em !important;
 		}
 	}
 
