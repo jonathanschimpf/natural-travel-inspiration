@@ -110,9 +110,9 @@
 		position: relative;
 		border-radius: 25px;
 		overflow: hidden;
-		max-width: 90vw;
+		max-width: 98.5vw;
 		margin: auto;
-		padding: 2vh; /* Example padding */
+		padding: 2vh;
 	}
 
 	.image-container {
@@ -127,10 +127,17 @@
 	}
 
 	.image-container img {
-		max-height: 65vh;
+		max-height: 60vh;
 		width: 100%;
 		object-fit: contain; /* or cover, depending on desired effect */
 		border-radius: 25px; /* Maintain a consistent border-radius */
+	}
+
+	@media (max-width: 1024px) {
+		.image-container img {
+			margin-top: 175px;
+			max-height: 45vh;
+		}
 	}
 
 	.photo-information,
