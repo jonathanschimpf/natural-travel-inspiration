@@ -109,11 +109,11 @@
 		align-items: center;
 		text-align: center;
 		position: relative;
-		border-radius: 2em;
 		overflow: hidden;
 		max-width: 98.5vw;
 		margin: auto;
 		padding: 2vh;
+		border-radius: 5vw;
 	}
 
 	.image-container {
@@ -130,7 +130,7 @@
 		max-height: 60vh;
 		width: 100%;
 		object-fit: contain;
-		border-radius: 2em; /* APPLYING BORDER RADIUS DIRECTLY TO THE IMAGE CLASS */
+		border-radius: 5vw; /* APPLYING BORDER RADIUS DIRECTLY TO THE IMAGE CLASS */
 	}
 
 	@media (max-width: 1024px) {
@@ -138,6 +138,7 @@
 			margin-top: 1vh;
 			max-height: 45vh;
 			object-fit: contain;
+			border-radius: 5vw;
 		}
 	}
 
