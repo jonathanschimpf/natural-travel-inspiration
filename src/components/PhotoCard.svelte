@@ -113,7 +113,7 @@
 		max-width: 98.5vw;
 		margin: auto;
 		padding: 2vh;
-		border-radius: 5vw;
+		border-radius: 1.75em;
 	}
 
 	.image-container {
@@ -124,13 +124,14 @@
 		background-size: cover;
 		background-position: center;
 		background-repeat: no-repeat;
+		border-radius: 1.75em;
 	}
 
 	.the-actual-fetched-image {
 		max-height: 60vh;
 		width: 100%;
 		object-fit: contain;
-		border-radius: 5vw; /* APPLYING BORDER RADIUS DIRECTLY TO THE IMAGE CLASS */
+		border-radius: 1.75em;
 	}
 
 	@media (max-width: 1024px) {
@@ -138,7 +139,7 @@
 			margin-top: 1vh;
 			max-height: 45vh;
 			object-fit: contain;
-			border-radius: 5vw;
+			border-radius: 1.75em;
 		}
 	}
 
