@@ -56,6 +56,7 @@
 				<div class="photo-card {loaded ? 'loaded' : ''}">
 					<div class="image-container">
 						<img
+							class="the-actual-fetched-image"
 							in:fade={{ delay: 250, duration: 500 }}
 							src={urls.regular}
 							alt={alt_description || 'Unsplash Photo'}
@@ -123,23 +124,20 @@
 		background-size: cover;
 		background-position: center;
 		background-repeat: no-repeat;
-		border-radius: inherit;
 	}
 
-	.image-container img {
-     max-height: 60vh;
-     width: 100%;
-     object-fit: contain;
-     border-radius: 2em;
-}
+	.the-actual-fetched-image {
+		max-height: 60vh;
+		width: 100%;
+		object-fit: contain;
+		border-radius: 2em; /* APPLYING BORDER RADIUS DIRECTLY TO THE IMAGE CLASS */
+	}
 
 	@media (max-width: 1024px) {
-		.image-container img {
+		.the-actual-fetched-image {
 			margin-top: 1vh;
 			max-height: 45vh;
-			width: 100%;
 			object-fit: contain;
-			border-radius: 2em !important;
 		}
 	}
 
