@@ -7,6 +7,14 @@
 <slot />
 
 <style>
+	/* APPLY A NATURAL BOX LAYOUT MODEL TO ALL ELEMENTS */
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
 	:global(.download-button, textarea, select, input:focus) {
 		outline: 0.5px solid #3a3a3a;
 	}
@@ -14,7 +22,7 @@
 	:global(.pico-form input[type='search']) {
 		outline: 0.5px solid #3a3a3a;
 	}
-	
+
 	:global(.pico-form:focus) {
 		outline: 2px solid whitesmoke !important;
 	}
