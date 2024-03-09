@@ -137,7 +137,9 @@
 	@media (max-width: 1024px) {
 		.the-actual-fetched-image {
 			margin-top: 1vh;
-			max-height: 45vh;
+			height: 45vh;
+			object-fit: contain;
+			border-radius: 1.75em;
 		}
 	}
 
