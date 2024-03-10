@@ -103,43 +103,47 @@
 </div>
 
 <style>
-	.photo-card {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		text-align: center;
-		position: relative;
-		overflow: hidden;
-		max-width: 98.5vw;
-		margin: auto;
-		padding: 2vh;
-	}
+.photo-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    max-width: 98.5vw;
+    margin: auto;
+    padding: 2vh;
+    border-radius: 34px; /* Keeping border-radius in px for consistency */
+}
 
-	.image-container {
-		position: relative;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		background-size: cover;
-		background-position: center;
-		background-repeat: no-repeat;
-	}
+.image-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 34px; /* Keeping border-radius in px for consistency */
+}
 
-	.the-actual-fetched-image {
-		max-height: 60vh;
-		width: 100%;
-		object-fit: contain;
-		border-radius: 34px;
-	}
+.the-actual-fetched-image {
+    height: auto; /* Adjust height automatically based on width to maintain aspect ratio */
+    width: 100%; /* Full width of the container */
+    object-fit: contain;
+    border-radius: 34px; /* Keeping border-radius in px for consistency */
+}
 
-	@media (max-width: 1024px) {
-		.the-actual-fetched-image {
-			margin-top: 1vh;
-			max-height: 45vh;
-			object-fit: contain;
-			border-radius: 34px;
-		}
-	}
+@media (max-width: 1024px) {
+    .the-actual-fetched-image {
+        margin-top: 1vh;
+        height: auto; /* Adjust height automatically based on width to maintain aspect ratio */
+        max-height: none; /* Remove max-height to allow height auto to take effect */
+        object-fit: contain;
+        border-radius: 34px; /* Keeping border-radius in px for consistency */
+    }
+}
+
 
 	/* THE PHOTO INFORMATION BELOW */
 
