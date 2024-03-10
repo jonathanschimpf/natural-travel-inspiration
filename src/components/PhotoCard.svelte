@@ -113,7 +113,6 @@
 		max-width: 98.5vw;
 		margin: auto;
 		padding: 2vh;
-		border-radius: 34px;
 	}
 
 	.image-container {
@@ -124,7 +123,6 @@
 		background-size: cover;
 		background-position: center;
 		background-repeat: no-repeat;
-		border-radius: 34px;
 	}
 
 	.the-actual-fetched-image {
@@ -142,6 +140,8 @@
 			border-radius: 34px;
 		}
 	}
+
+	/* THE PHOTO INFORMATION BELOW */
 
 	.photo-information,
 	.caption,
