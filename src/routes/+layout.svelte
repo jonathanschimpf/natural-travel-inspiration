@@ -15,6 +15,12 @@
 		margin: 0;
 		padding: 0;
 	}
+
+	:global(body, html) {
+		height: 100%;
+		margin: 0;
+	}
+
 	:global(.download-button, textarea, select, input:focus) {
 		outline: 0.5px solid #3a3a3a;
 	}

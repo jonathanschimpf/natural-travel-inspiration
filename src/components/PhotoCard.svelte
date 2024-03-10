@@ -48,102 +48,113 @@
 	}
 </script>
 
-<div class="photo-card {loaded ? 'loaded' : ''}" in:fade={{ delay: 500, duration: 500 }}>
-	<div class="image-container">
-		{#if photo && photo.urls && photo.urls.regular}
-			{#each [photo] as { id, urls, alt_description, user } (key)}
-				<!-- Keyed each block -->
-				<div class="photo-card {loaded ? 'loaded' : ''}">
-					<div class="image-container">
-						<img
-							class="the-actual-fetched-image"
-							in:fade={{ delay: 250, duration: 500 }}
-							src={urls.regular}
-							alt={alt_description || 'Unsplash Photo'}
-						/>
-					</div>
-					<div class="photo-information" in:fade={{ delay: 500, duration: 500 }}>
-						{#if photo.location && photo.location.name}
-							<p class="location">{photo.location.name}</p>
-						{/if}
-						<div class="caption">
-							<span class="credit-photo-by">Photo by </span>
-							<a
-								class="credit-links"
-								href={createAttributionLink(user.links.html)}
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								{user.name}
-							</a>
-							<span class="credit-on"> on </span>
-							<a
-								class="credit-links"
-								href={createAttributionLink('https://unsplash.com')}
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								Unsplash
-							</a>
+<div class="natural-inspiration-app-div-wrap">
+	<div class="photo-card {loaded ? 'loaded' : ''}" in:fade={{ delay: 500, duration: 500 }}>
+		<div class="image-container">
+			{#if photo && photo.urls && photo.urls.regular}
+				{#each [photo] as { id, urls, alt_description, user } (key)}
+					<!-- Keyed each block -->
+					<div class="photo-card {loaded ? 'loaded' : ''}">
+						<div class="image-container">
+							<img
+								class="the-actual-fetched-image"
+								in:fade={{ delay: 250, duration: 500 }}
+								src={urls.regular}
+								alt={alt_description || 'Unsplash Photo'}
+							/>
 						</div>
+						<div class="photo-information" in:fade={{ delay: 500, duration: 500 }}>
+							{#if photo.location && photo.location.name}
+								<p class="location">{photo.location.name}</p>
+							{/if}
+							<div class="caption">
+								<span class="credit-photo-by">Photo by </span>
+								<a
+									class="credit-links"
+									href={createAttributionLink(user.links.html)}
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									{user.name}
+								</a>
+								<span class="credit-on"> on </span>
+								<a
+									class="credit-links"
+									href={createAttributionLink('https://unsplash.com')}
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									Unsplash
+								</a>
+							</div>
+						</div>
+						<button
+							class="download-button"
+							on:click={triggerDownload}
+							bind:this={buttonElement}
+							on:mouseup={removeFocus}
+							in:fade={{ delay: 500, duration: 500 }}
+						>
+							Download
+						</button>
 					</div>
-					<button
-						class="download-button"
-						on:click={triggerDownload}
-						bind:this={buttonElement}
-						on:mouseup={removeFocus}
-						in:fade={{ delay: 500, duration: 500 }}
-					>
-						Download
-					</button>
-				</div>
-			{/each}
-		{/if}
+				{/each}
+			{/if}
+		</div>
 	</div>
 </div>
 
 <style>
-.photo-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    max-width: 98.5vw;
-    margin: auto;
-    padding: 2vh;
-    border-radius: 34px; /* Keeping border-radius in px for consistency */
-}
+	
+	/* APP WRAP */
+	.natural-inspiration-app-div-wrap {
+		display: flex;
+		flex-direction: column;
+		justify-content: center; /* VERTICAL CENTERING */
+		align-items: center; /* HORIZONTAL CENTERING*/
+		padding: 2.5vh 0; /* PADDING — TOP+BOTTOM */
+	}
 
-.image-container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: 34px; /* Keeping border-radius in px for consistency */
-}
+	
+	.photo-card {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		max-width: 98.5vw; 
+		border-radius: 34px;
+	}
 
-.the-actual-fetched-image {
-    height: auto; /* Adjust height automatically based on width to maintain aspect ratio */
-    width: 100%; /* Full width of the container */
-    object-fit: contain;
-    border-radius: 34px; /* Keeping border-radius in px for consistency */
-}
+	
+	.image-container {
+		position: relative;
+		width: 95%; 
+	}
 
-@media (max-width: 1024px) {
+	/* The actual image */
+	.the-actual-fetched-image {
+		max-width: 100%; 
+		max-height: 50vh; 
+		object-fit: contain; 
+		border-radius: 34px; 
+	}
+
+	@media (max-width: 1024px) {
+		.the-actual-fetched-image {
+			max-height: 75vh; 
+		}
+	}
+	/* Desktop and large devices */
+@media (min-width: 1024px) {
+    .image-container {
+        width: 100%; 
+        max-width: 850px; /* A larger max-width for larger screens */
+    }
+
     .the-actual-fetched-image {
-        margin-top: 1vh;
-        height: auto; /* Adjust height automatically based on width to maintain aspect ratio */
-        max-height: none; /* Remove max-height to allow height auto to take effect */
-        object-fit: contain;
-        border-radius: 34px; /* Keeping border-radius in px for consistency */
+        max-height: 65vh; /* A larger max-height for larger screens */
     }
 }
-
 
 	/* THE PHOTO INFORMATION BELOW */
 
