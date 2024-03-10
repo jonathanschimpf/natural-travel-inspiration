@@ -141,7 +141,7 @@
 
 	@media (max-width: 1024px) {
 		.the-actual-fetched-image {
-			max-height: 75vh; 
+			max-height: 50vh; 
 		}
 	}
 	/* Desktop and large devices */
