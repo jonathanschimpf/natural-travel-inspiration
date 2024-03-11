@@ -139,12 +139,8 @@
 	/* SMALLER VIEWPORTS */
 	@media (max-width: 1024px) {
 		.the-actual-fetched-image {
-			margin-top:1vh;
-			max-height: 60vh;
-		}
-
-		.location {
-			font-size: 13px;
+			margin-top: 1vh;
+			max-height: 50vh;
 		}
 	}
 
