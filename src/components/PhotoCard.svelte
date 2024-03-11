@@ -142,6 +142,24 @@
 			margin-top: 1vh;
 			max-height: 50vh;
 		}
+		.photo-information .location {
+			font-size: 12px;
+			margin-bottom: 0.5em; 
+		}
+		.photo-information .caption {
+			font-size: 9px;
+			margin-bottom: 0.5em; 
+		}
+		.photo-information .credit-photo-by,
+		.photo-information .credit-links,
+		.photo-information .credit-on {
+			font-size: 9px; 
+		}
+		button.download-button {
+			font-size: 6px;
+			padding: 0.5em;
+			margin-top: 0.2em;
+		}
 	}
 
 	/* LARGER VIEWPORTS */
@@ -152,6 +170,25 @@
 		}
 		.the-actual-fetched-image {
 			max-height: 65vh;
+		}
+
+		.photo-information .location {
+			font-size: 12px;
+			margin-bottom: 0.5em;
+		}
+		.photo-information .caption {
+			font-size: 9px;
+			margin-bottom: 0.8em;
+		}
+		.photo-information .credit-photo-by,
+		.photo-information .credit-links,
+		.photo-information .credit-on {
+			font-size: 9.5px;
+		}
+		button.download-button {
+			font-size: 6px;
+			padding: 1em;
+			margin-top: 0.3em;
 		}
 	}
 
@@ -214,10 +251,10 @@
 		color: rgb(129, 129, 129);
 		border: none;
 		padding: 0.1em 0.1em;
-		padding-top: 0.3em;
+		padding-top: 0.1em;
 		cursor: pointer;
 		max-width: 40px;
-		height: 16px;
+		height: 10px;
 		width: 100%;
 		outline: 1px solid rgb(180, 180, 180);
 	}
