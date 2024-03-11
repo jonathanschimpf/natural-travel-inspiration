@@ -105,7 +105,6 @@
 </div>
 
 <style>
-	
 	/* APP WRAP */
 	.natural-inspiration-app-div-wrap {
 		display: flex;
@@ -115,49 +114,52 @@
 		padding: 2.5vh 0; /* PADDING — TOP+BOTTOM */
 	}
 
-	
 	.photo-card {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		text-align: center;
-		max-width: 98.5vw; 
+		max-width: 98.5vw;
 		border-radius: 34px;
 	}
 
-	
 	.image-container {
 		position: relative;
-		width: 95%; 
+		width: 95%;
 	}
 
-	/* The actual image */
+	/* ACTUAL IMAGE CLASS */
 	.the-actual-fetched-image {
-		max-width: 100%; 
-		max-height: 50vh; 
-		object-fit: contain; 
-		border-radius: 34px; 
+		max-width: 100%;
+		max-height: 50vh;
+		object-fit: contain;
+		border-radius: 34px;
 	}
 
+	/* SMALLER VIEWPORTS */
 	@media (max-width: 1024px) {
 		.the-actual-fetched-image {
-			max-height: 50vh; 
+			margin-top:1vh;
+			max-height: 60vh;
+		}
+
+		.location {
+			font-size: 13px;
 		}
 	}
-	/* Desktop and large devices */
-@media (min-width: 1024px) {
-    .image-container {
-        width: 100%; 
-        max-width: 850px; /* A larger max-width for larger screens */
-    }
 
-    .the-actual-fetched-image {
-        max-height: 65vh; /* A larger max-height for larger screens */
-    }
-}
+	/* LARGER VIEWPORTS */
+	@media (min-width: 1024px) {
+		.image-container {
+			width: 100%;
+			max-width: 850px;
+		}
+		.the-actual-fetched-image {
+			max-height: 65vh;
+		}
+	}
 
 	/* THE PHOTO INFORMATION BELOW */
-
 	.photo-information,
 	.caption,
 	.location,

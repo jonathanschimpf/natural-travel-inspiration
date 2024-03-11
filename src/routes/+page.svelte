@@ -9,7 +9,6 @@
 	// PUBLIC ACCESS KEY FROM THE Unsplash COMPANY AND KEPT PRIVATE IN ENVIRONMENT VARIABLES
 	const accessKey = import.meta.env.VITE_UNSPLASH_ACCESS_KEY;
 
-
 	// HOLDS THE CURRENT PHOTO OBJECT
 	let photo;
 	// STORES VARIOUS ERROR MESSSAGES
@@ -31,25 +30,25 @@
 		const url = `https://api.unsplash.com/photos/random?client_id=${accessKey}&query=${encodedQuery}`;
 
 		try {
-        const response = await fetch(url);
-        if (!response.ok) {
-            throw new Error('Error fetching photo.');
-        }
-        const newPhoto = await response.json();
+			const response = await fetch(url);
+			if (!response.ok) {
+				throw new Error('Error fetching photo.');
+			}
+			const newPhoto = await response.json();
 
-        // CHECK IF PHOTO LACKS A LOCATION OR IS BLACKLISTED
-        if (blacklist.has(newPhoto.id) || !newPhoto.location || !newPhoto.location.name) {
-            console.log('Photo blacklisted or without location, fetching another one.');
-            return fetchPhoto(query); // RECURSIVE CALL FOR A NEW PHOTO IF NEEDED
-        }
+			// CHECK IF PHOTO LACKS A LOCATION OR IS BLACKLISTED
+			if (blacklist.has(newPhoto.id) || !newPhoto.location || !newPhoto.location.name) {
+				console.log('Photo blacklisted or without location, fetching another one.');
+				return fetchPhoto(query); // RECURSIVE CALL FOR A NEW PHOTO IF NEEDED
+			}
 
-        return newPhoto;
-    } catch (err) {
-        error = 'Error fetching new photo.';
-        console.error('Fetch error:', err);
-        return null;
-    }
-}
+			return newPhoto;
+		} catch (err) {
+			error = 'Error fetching new photo.';
+			console.error('Fetch error:', err);
+			return null;
+		}
+	}
 	// THIS FUNCTION IS TRIGGERED WHEN THE USER CLICKS THE 'Download' BUTTON UNDER THE IMAGE ON THIS '+page.svelte'.
 	//  IT MAKES AN ADDITIONAL REQUEST TO THE Unsplash API FOR THE DOWNLOAD. IT THEN TRIGGERS THE BROWSER TO DOWNLOAD.
 	async function onDownload(photo, filename) {
@@ -103,7 +102,27 @@
 	// RETURNS ONE OF THE RANDOM KEYWORDS BELOW FROM THE ARRAY
 	// I'VE ENTERED BELOW THAT ARE THE BACKBONE OF CONTENT FOR THIS 'Natural Travel Inspiration' PROJECT
 	function getRandomKeyword() {
-		const keywords = ['mountain', 'hike', 'vista', 'cliff', 'forest', 'rainforest', 'river', 'natural', 'island', 'desert',  'canyon', 'glacier', 'volcano', 'waterfall', 'valley', 'fjord', 'plateau', 'geyser', 'dune'];
+		const keywords = [
+			'mountain',
+			'hike',
+			'vista',
+			'cliff',
+			'forest',
+			'rainforest',
+			'river',
+			'natural',
+			'island',
+			'desert',
+			'canyon',
+			'glacier',
+			'volcano',
+			'waterfall',
+			'valley',
+			'fjord',
+			'plateau',
+			'geyser',
+			'dune'
+		];
 		return keywords[Math.floor(Math.random() * keywords.length)];
 	}
 	// LIFECYCLE HOOK THAT RUNS WHEN THE COMPONENT IS INITIALLY RENDERED
@@ -123,30 +142,25 @@
 		}
 	}
 </script>
-
-<!-- HTML + DYNAMIC CONTENT COMPONENT + PICO.CSS LIGHTWEIGHT FRAMEWORK (INSTEAD OF BOOTSTRAP ALWAYS) -->
-<h1 in:fade={{ delay: 100, duration: 1000 }}>Natural Travel Inspiration ⛰️</h1>
-
-<button
-	class="random-natural-button"
-	on:click={getUniquePhoto}
-	bind:this={buttonElement}
-	on:mouseup={removeFocus}
-	in:fade={{ delay: 100, duration: 1000 }}>+Random Natural Inspiration</button
->
-
-	{#if error}
-		<p>{error}</p>
-	{:else}
-		{#key photo}
-			<PhotoCard {photo} {onDownload} />
-		{/key}
-		{#if !photo}
-			<p class="searching-for-inspiration">🔍 Searching For Inspiration...</p>
-		{/if}
-	{/if}
+{#if error}
+  <p>{error}</p>
+{:else if photo}
+  <div in:fade={{ delay: 500, duration: 1000 }}>
+    <h1>Natural Travel Inspiration ⛰️</h1>
+    <button
+      class="random-natural-button"
+      on:click={getUniquePhoto}
+      bind:this={buttonElement}
+      on:mouseup={removeFocus}
+    >+Random Natural Inspiration</button>
+    <PhotoCard {photo} {onDownload} />
+  </div>
+{:else}
+  <p class="searching-for-inspiration">🔍 Searching For Inspiration...</p>
+{/if}
 
 <style>
+
 	/* '+Random Natural Inspiration' BUTTON STYLING */
 	.random-natural-button:focus {
 		outline: 2px solid whitesmoke;
