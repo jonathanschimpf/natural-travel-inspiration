@@ -121,7 +121,8 @@
 			'fjord',
 			'plateau',
 			'geyser',
-			'dune'
+			'dune',
+			'mesa'
 		];
 		return keywords[Math.floor(Math.random() * keywords.length)];
 	}
@@ -142,6 +143,7 @@
 		}
 	}
 </script>
+
 {#if error}
   <p>{error}</p>
 {:else if photo}
