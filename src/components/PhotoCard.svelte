@@ -111,7 +111,7 @@
 		flex-direction: column;
 		justify-content: center; /* VERTICAL CENTERING */
 		align-items: center; /* HORIZONTAL CENTERING*/
-		padding: 2.5vh 0; /* PADDING — TOP+BOTTOM */
+		padding: 4.5vh 0; /* PADDING — TOP+BOTTOM */
 	}
 
 	.photo-card {
@@ -119,13 +119,13 @@
 		flex-direction: column;
 		align-items: center;
 		text-align: center;
-		max-width: 98.5vw;
+		max-width: 97.5vw;
 		border-radius: 34px;
 	}
 
 	.image-container {
 		position: relative;
-		width: 95%;
+		width: 97.5%;
 	}
 
 	/* ACTUAL IMAGE CLASS */
@@ -140,7 +140,7 @@
 	@media (max-width: 1024px) {
 		.the-actual-fetched-image {
 			margin-top: 1vh;
-			max-height: 50vh;
+			max-height: 60vh;
 		}
 		.photo-information .location {
 			font-size: 12px;
