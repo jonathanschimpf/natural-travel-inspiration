@@ -111,7 +111,7 @@
 		flex-direction: column;
 		justify-content: center; /* VERTICAL CENTERING */
 		align-items: center; /* HORIZONTAL CENTERING*/
-		padding: 3vh 0; /* PADDING — TOP+BOTTOM */
+		padding: 1.5vh 0; /* PADDING — TOP+BOTTOM */
 	}
 
 	.photo-card {
