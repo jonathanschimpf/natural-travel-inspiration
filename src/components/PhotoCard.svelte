@@ -120,7 +120,7 @@
 		align-items: center;
 		text-align: center;
 		max-width: 97.5vw;
-		border-radius: 34px;
+		border-radius: 28px;
 	}
 
 	.image-container {
@@ -133,7 +133,7 @@
 		max-width: 100%;
 		max-height: 50vh;
 		object-fit: contain;
-		border-radius: 34px;
+		border-radius: 28px;
 	}
 
 	/* SMALLER VIEWPORTS */
@@ -246,7 +246,7 @@
 		text-align: center;
 		justify-content: center;
 		background-color: rgb(209, 209, 209);
-		border-radius: 5px;
+		border-radius: 28px;
 		font-size: 7px;
 		color: rgb(129, 129, 129);
 		border: none;
