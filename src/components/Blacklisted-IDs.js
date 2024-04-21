@@ -629,5 +629,6 @@ export const blacklist = new Set([
 	'Y8O_3xuz_H0',
 	'CjLelVuKdQM',
 	'hUl4BrFKJEo',
-	'FIp9sc0ryMs'
+	'FIp9sc0ryMs',
+	'PeBAr07F32E'
 ]);
